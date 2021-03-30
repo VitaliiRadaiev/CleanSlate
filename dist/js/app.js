@@ -352,14 +352,10 @@ if(testimonialSlider) {
 			btn.classList.remove('icon-play_circle_filled');
 			btn.classList.add('icon-pause_circle_filled');
 
-			console.log('play');
-
 		} else {
 			video.pause();
 			btn.classList.remove('icon-pause_circle_filled');
 			btn.classList.add('icon-play_circle_filled');
-
-			console.log('pause');
 		}
 	}
 
@@ -373,15 +369,21 @@ if(testimonialSlider) {
 					let video = slide.querySelector('video');
 					let content = slide.querySelector('.fancybox-content');
 
+					if(video.classList.contains('latest-projects__item-video')) {
+						video.muted = false;
+					}
+
 					if(!content.querySelector('.video-control')) {
 						let videoControl = document.createElement('div');
 						videoControl.className = 'video-control';
 	
 						let playPauseBtn = document.createElement('div');
 						playPauseBtn.className = 'play-pause-btn icon-pause_circle_filled';
+						playPauseBtn.setAttribute('data-fancybox-play-pouse', '');
 	
 						let progressBar = document.createElement('div');
 						progressBar.className = "video-progres-bar";
+						progressBar.setAttribute('data-fancybox-progress', '');
 	
 						let thumb = document.createElement('div');
 						thumb.className = 'video-thumb';
@@ -404,8 +406,6 @@ if(testimonialSlider) {
 						};
 
 						video.addEventListener('ended', () => {
-							console.log('ended');
-							
 							video.pause();
 							playPauseBtn.classList.remove('icon-pause_circle_filled');
 							playPauseBtn.classList.add('icon-play_circle_filled');
@@ -422,6 +422,15 @@ if(testimonialSlider) {
 			}
 			
 
+		},
+		afterClose: function() {
+			let projects = document.querySelectorAll('.latest-projects__item');
+			if(projects.length) {
+				projects.forEach(project => {
+					let video = project.querySelector('.latest-projects__item-video');
+					video.muted = true;
+				})
+			}
 		}
 	});
 	

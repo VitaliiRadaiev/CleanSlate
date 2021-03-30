@@ -153,6 +153,11 @@
     display: flex;
     align-items: center;
     height: 100px;
+
+    @media (max-width: $md3+px) {
+        width: 95%;
+        height: 60px;
+    }
 }
 
 .play-pause-btn {

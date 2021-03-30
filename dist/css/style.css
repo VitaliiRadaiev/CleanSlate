@@ -3930,6 +3930,11 @@ textarea {
         -ms-flex: 0 1 50%;
             flex: 0 1 50%;
   }
+
+  .video-control {
+    width: 95%;
+    height: 60px;
+  }
 }
 
 @media all and (max-width: 576px) {
