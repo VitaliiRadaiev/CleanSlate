@@ -53,10 +53,14 @@ $(document).ready(function () {
 			btn.classList.remove('icon-play_circle_filled');
 			btn.classList.add('icon-pause_circle_filled');
 
+			console.log('play');
+
 		} else {
 			video.pause();
 			btn.classList.remove('icon-pause_circle_filled');
 			btn.classList.add('icon-play_circle_filled');
+
+			console.log('pause');
 		}
 	}
 
@@ -101,6 +105,8 @@ $(document).ready(function () {
 						};
 
 						video.addEventListener('ended', () => {
+							console.log('ended');
+							
 							video.pause();
 							playPauseBtn.classList.remove('icon-pause_circle_filled');
 							playPauseBtn.classList.add('icon-play_circle_filled');
