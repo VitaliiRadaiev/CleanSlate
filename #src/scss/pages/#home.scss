@@ -337,6 +337,7 @@
         height: 100%;
         z-index: 1;
         object-fit: cover;
+        display: block !important;
     }
 
     &__item-body {
@@ -583,7 +584,7 @@
 
 
 .advantages {
-    margin-bottom: 73px;
+    margin-bottom: 59px;
     position: relative;
 
     &__bg {

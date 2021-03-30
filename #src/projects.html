@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('_head.html',{
+	"title": "New Project"
+	})
+	<body>
+		<!-- == TOP LINE ================== -->
+		@@include('common/header/_header.html',{
+            "_mix-mode": '_mix-mode',
+        })
+		<!-- == // TOP LINE ================== -->
+
+		<!-- == PAGE CONTENT ================== -->
+		<main class="page projects-page"> 
+			<section class="projects">
+                <div class="container">
+                    <div class="projects__head">
+                        <h1 class="projects__title">Our projects</h1>
+                        <ul class="projects__nav">
+                            <li>
+                                <a href="#" class="projects__nav-link active">All videos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">commercials films</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">fashion films</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">music videos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">showreel</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="projects__list">
+                        <li>
+                            <a data-fancybox="html5-video" href="#video-1" class="projects-card">
+                                <div class="projects-card__img-poster ibg">
+                                    <img src="img/photo/poster03.jpg" alt="">
+                                </div>
+                                <video id="video-1" class="projects-card__video" autoplay="false" preload="true">
+                                    <source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                </video>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-fancybox="html5-video" href="#video-2" class="projects-card">
+                                <div class="projects-card__img-poster ibg">
+                                    <img src="img/photo/poster03.jpg" alt="">
+                                </div>
+                                <video id="video-2" class="projects-card__video" autoplay="false" preload="true">
+                                    <source src="img/shrek.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                </video>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+		</main>
+		<!-- == // PAGE CONTENT ================== -->
+
+
+		<!-- == FOOTER ================== -->
+		@@include('common/footer/_footer.html',{})
+		<!-- == // FOOTER ================== -->
+
+		@@include('_js.html',{})
+	</body>
+</html>

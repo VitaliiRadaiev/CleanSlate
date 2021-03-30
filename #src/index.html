@@ -5,7 +5,9 @@
 	})
 	<body>
 		<!-- == TOP LINE ================== -->
-		@@include('common/header/_header.html',{})
+		@@include('common/header/_header.html',{
+			"_mix-mode": '_mix-mode',
+		})
 		<!-- == // TOP LINE ================== -->
 
 		<!-- == PAGE CONTENT ================== -->
@@ -47,8 +49,8 @@
 					<div class="latest-projects__body">
 						<div class="latest-projects__row-1">
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-1" class="latest-projects__item">
+									<video id="video-1" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -57,8 +59,8 @@
 								</a>
 							</div>
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-2" class="latest-projects__item">
+									<video id="video-2" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -69,8 +71,8 @@
 						</div>
 						<div class="latest-projects__row-2">
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-3" class="latest-projects__item">
+									<video id="video-3" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -79,8 +81,8 @@
 								</a>
 							</div>
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-4" class="latest-projects__item">
+									<video id="video-4" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">

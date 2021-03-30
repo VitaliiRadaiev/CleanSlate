@@ -2,6 +2,10 @@
 
     &__main {
         margin-bottom: 73px;
+
+        @media (max-width: $md3+px) {
+            margin-bottom: 40px;
+        }
     }
 
     &__bottom {
@@ -15,6 +19,10 @@
         padding-top: 10px;
         padding-bottom: 10px;
         justify-content: space-between;
+
+        @media (max-width: 575px) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__copy {
@@ -30,6 +38,12 @@
         color: #fff;
         font-weight: 300;
 
+        @media (max-width: 575px) {
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
         & a {
             color: #fff;
             text-decoration: underline;
@@ -37,11 +51,14 @@
 
         & li {
             &:not(:last-child) {
-                margin-right: 10px;
-                &:after {
-                    content: '|';
-                    margin-left: 8px;
+                @media (min-width: 576px) {
+                    margin-right: 8px;
+                    &:after {
+                        content: '|';
+                        margin-left: 5px;
+                    }
                 }
+
             }
         }
     }
@@ -52,13 +69,22 @@
 .main-footer {
     display: flex;
 
+    @media (max-width: $md3+px) {
+        display: block;
+    }
+
     &__column {
         &:nth-child(1) {
             flex: 1 1 auto;
             margin-right: 95px;
+            padding-top: 7px;
 
             @media (max-width: $md2+px) {
                 margin-right: 20px;
+            }
+
+            @media (max-width: $md3+px) {
+                margin-right: 0;
             }
         }
         &:nth-child(2) {
@@ -70,21 +96,31 @@
         font-size: 80px;
         line-height: 1.1875em;
         font-weight: 700;
-        margin-bottom: 31px;
+        margin-bottom: 23px;
         text-transform: uppercase;
+
+        @media (max-width: $md2+px) {
+            font-size: 60px;
+        }
+        @media (max-width: $md3+px) {
+            font-size: 40px;
+        }
+        // @media (max-width: $md4+px) {
+        //     font-size: 26px;
+        // }
     }
 
     &__list {
         font-size: 15px;
         line-height: 1.3333em;
-        margin-bottom: 39px;
+        margin-bottom: 36px;
         & a {
             color: $textColor;
             text-decoration: underline;
         }
 
         & li:not(:last-child) {
-            margin-bottom: 15px;
+            margin-bottom: 13px;
         }
     }
 }
@@ -124,7 +160,7 @@
     flex-direction: column;
 
     &__item {
-        margin-bottom: 46px;
+        margin-bottom: 45px;
     }
 
     &__input {

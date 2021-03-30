@@ -14,7 +14,7 @@
 </head>
 	<body>
 		<!-- == TOP LINE ================== -->
-		<header class="header ">
+		<header class="header _mix-mode">
     <div class="header__body container">
         <div class="header__logo">
             <a href="#">
@@ -27,10 +27,10 @@
                     <a href="#projects" class="menu__link anchor">PROJECTS</a>
                 </li>
                 <li>
-                    <a href="#about" class="menu__link">ABOUT</a>
+                    <a href="#about" class="menu__link anchor">ABOUT</a>
                 </li>
                 <li>
-                    <a href="#" class="menu__link">CONTACT</a>
+                    <a href="#contact" class="menu__link anchor">CONTACT</a>
                 </li>
             </ul>
         </nav>
@@ -88,8 +88,8 @@
 					<div class="latest-projects__body">
 						<div class="latest-projects__row-1">
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-1" class="latest-projects__item">
+									<video id="video-1" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -98,8 +98,8 @@
 								</a>
 							</div>
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-2" class="latest-projects__item">
+									<video id="video-2" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -110,8 +110,8 @@
 						</div>
 						<div class="latest-projects__row-2">
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-3" class="latest-projects__item">
+									<video id="video-3" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -120,8 +120,8 @@
 								</a>
 							</div>
 							<div class="latest-projects__column">
-								<a href="#" class="latest-projects__item">
-									<video class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
+								<a data-fancybox="html5-video" href="#video-4" class="latest-projects__item">
+									<video id="video-4" class="latest-projects__item-video" loop preload="true" muted="true" poster="img/photo/poster02.jpg">
 										<source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video>
 									<div class="latest-projects__item-body">
@@ -246,7 +246,7 @@
 
 
 		<!-- == FOOTER ================== -->
-		<footer class="footer">
+		<footer id="contact" class="footer">
     <div class="footer__main container main-footer">
         <div class="main-footer__column">
             <h2 class="main-footer__title">

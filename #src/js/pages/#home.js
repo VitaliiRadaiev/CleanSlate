@@ -1,6 +1,7 @@
 {
     let header = document.querySelector('.header');
     if(header) {
+        let wrapper = document.querySelector('.page');
         window.addEventListener('scroll', () => {
             if(window.pageYOffset > 30) {
                 header.classList.add('_is-scroll');
@@ -8,12 +9,13 @@
                 header.classList.remove('_is-scroll');
             }
 
-            if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
-                header.classList.add('_mix-mode');
-            } else {
-                header.classList.remove('_mix-mode');
+            if(wrapper.classList.contains('home')) {
+                if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
+                    header.classList.add('_mix-mode');
+                } else {
+                    header.classList.remove('_mix-mode');
+                }
             }
-            
         })
     }
 

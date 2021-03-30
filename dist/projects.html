@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>New Project</title>
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+	<body>
+		<!-- == TOP LINE ================== -->
+		<header class="header _mix-mode">
+    <div class="header__body container">
+        <div class="header__logo">
+            <a href="#">
+                <img class="img-svg" src="img/logo/logo.svg" alt="logo">
+            </a>
+        </div>
+        <nav class="header__menu menu">
+            <ul class="menu__list">
+                <li>
+                    <a href="#projects" class="menu__link anchor">PROJECTS</a>
+                </li>
+                <li>
+                    <a href="#about" class="menu__link anchor">ABOUT</a>
+                </li>
+                <li>
+                    <a href="#contact" class="menu__link anchor">CONTACT</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__burger">
+            <div class="burger-wrap">
+                <div class="burger" data-activEl="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div> 
+    </div>
+</header>
+
+		<!-- == // TOP LINE ================== -->
+
+		<!-- == PAGE CONTENT ================== -->
+		<main class="page projects-page"> 
+			<section class="projects">
+                <div class="container">
+                    <div class="projects__head">
+                        <h1 class="projects__title">Our projects</h1>
+                        <ul class="projects__nav">
+                            <li>
+                                <a href="#" class="projects__nav-link active">All videos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">commercials films</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">fashion films</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">music videos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="projects__nav-link ">showreel</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="projects__list">
+                        <li>
+                            <a data-fancybox="html5-video" href="#video-1" class="projects-card">
+                                <div class="projects-card__img-poster ibg">
+                                    <img src="img/photo/poster03.jpg" alt="">
+                                </div>
+                                <video id="video-1" class="projects-card__video" autoplay="false" preload="true">
+                                    <source src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                </video>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-fancybox="html5-video" href="#video-2" class="projects-card">
+                                <div class="projects-card__img-poster ibg">
+                                    <img src="img/photo/poster03.jpg" alt="">
+                                </div>
+                                <video id="video-2" class="projects-card__video" autoplay="false" preload="true">
+                                    <source src="img/shrek.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                                </video>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+		</main>
+		<!-- == // PAGE CONTENT ================== -->
+
+
+		<!-- == FOOTER ================== -->
+		<footer id="contact" class="footer">
+    <div class="footer__main container main-footer">
+        <div class="main-footer__column">
+            <h2 class="main-footer__title">
+                let’s work together
+            </h2>
+            <ul class="main-footer__list">
+                <li>
+                    5-7 Wells Terrace, Finsbury Park, London N4 3JU
+                </li>
+                <li>
+                    <a href="mailto:info@cleanslate.london">info@cleanslate.london</a>
+                </li>
+                <li>
+                    074901874 98
+                </li>
+            </ul>
+            <ul class="social">
+                <li>
+                    <a href="#" class="social__link">
+                        <img src="../../img/icons/facebook.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="social__link">
+                        <img src="../../img/icons/youtube.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="social__link">
+                        <img src="../../img/icons/instagram.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="social__link">
+                        <img src="../../img/icons/linkedin.png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-footer__column">
+            <form action="#" class="footer-form">
+                <div class="footer-form__item">
+                    <input type="text" class="footer-form__input" placeholder="Your name *">
+                </div>
+                <div class="footer-form__item">
+                    <input type="email" class="footer-form__input" placeholder="Your email *">
+                </div>
+                <div class="footer-form__item">
+                    <input type="text" class="footer-form__input" placeholder="Subject">
+                </div>
+                <div class="footer-form__item">
+                    <input type="text" class="footer-form__input" placeholder="Your message">
+                </div>
+                <button class="btn-default">send</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <div class="footer__bottom-body container">
+            <div class="footer__copy">© 2021 CleanSlate</div>
+            <ul class="footer__bottom-list">
+                <li>
+                    Designed by <a href="#">Duvsha</a> 
+                </li>
+                <li>
+                    Developed by xxx
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+		<!-- == // FOOTER ================== -->
+
+		
+<script src="js/vendors.js"></script>
+<script src="js/app.js"></script>
+<!-- <script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7Q82l2QjSzJJk1uUW3OzUBGPTlbk8w1g&callback=initMap&libraries=&v=weekly"
+defer
+></script> -->
+	</body>
+</html>
