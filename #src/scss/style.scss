@@ -1,0 +1,373 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+// ==== FONTS ===========================================================================================
+@import "fonts";
+// ==== // FONTS ===========================================================================================
+
+// ==== VARS ===========================================================================================
+@import "vars"; 
+// ==== // VARS ===========================================================================================
+
+
+// ==== НОРМАЛАЙЗ ===========================================================================================
+@import "normalize";
+// ==== // НОРМАЛАЙЗ ===========================================================================================
+
+//<MIXINE>===============================================================================================
+@import "mixins.scss";
+//</MIXINE>===============================================================================================
+
+//<ICOMOON>===============================================================================================
+@import "../icomoon/style";
+//</ICOMOON>===============================================================================================
+
+//<FANCYBOX>===============================================================================================
+@import "plagins/fancybox.scss";
+//<FANCYBOX>===============================================================================================
+
+// ==== PLAGINS ===========================================================================================
+@import "plagins/swiper-bundle";
+//@import "plagins/drift-basic";
+// ==== // PLAGINS ===========================================================================================
+
+// ==== FORM STYLE DEFAULT ===========================================================================================
+@import "forms";
+// ==== FORM STYLE DEFAULT ===========================================================================================
+
+// ==== BORDER ===========================================================================================
+@import "../common/burger/burger";
+// ==== BORDER ===========================================================================================
+
+// ==== POPUP ===========================================================================================
+//@import "common/popup/popup";
+// ==== // POPUP ===========================================================================================
+
+
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+	display: block;
+}
+html {
+	font-size: 10px;
+}
+html,
+body {
+	height: 100%;
+	min-width: $minwidth;
+	margin: 0 auto;
+}
+body {
+	line-height: 1;
+	font-family: $mainFontFamily;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	color: $textColor;
+	font-size: 1.5rem;
+	opacity: 0;
+	transition: opacity .8s ease;
+	position: relative;
+
+	&.lock {
+		overflow: hidden;
+	}
+
+	&.is-load {
+		opacity: 1;
+	}
+
+}
+
+input,
+button,
+textarea {
+	font-family: $mainFontFamily;
+}
+input::-ms-clear {
+	display: none;
+}
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+
+
+.center {
+	text-align: center;
+}
+
+
+.page {
+	overflow: hidden;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+}
+
+
+.container {
+	max-width: 1310px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.ibg {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
+.logo {
+	max-width: 267px;
+	width: 100%;
+
+	& img {
+		width: 100%;
+	}
+}
+
+
+// === title ========================================================================
+.title-1 {
+
+}
+.title-2 {
+	font-family: $mainFontFamily;
+	font-size: 40px;
+	font-weight: 600;
+	line-height: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+
+	@media (max-width: $md3+px) {
+		font-size: 30px;
+	}
+}
+
+.title-3 {
+
+}
+
+.title-4 {
+
+}
+
+.title-5 {
+
+
+}
+.title-6 {
+
+
+}
+
+.suptitle {
+
+}
+.subtitle {
+
+}
+
+.text {
+
+}
+// === and title ========================================================================
+
+
+
+// === btn ========================================================================
+.btn-default {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid $textColor;
+	min-height: 50px;
+	min-width: 215px;
+	font-size: 15px;
+	line-height: 1.2em;
+	padding: 15px 20px 10px;
+	font-weight: 600;
+	color: $textColor;
+	transition: all .3s ease;
+	text-transform: uppercase;
+
+	@media (min-width: 992px) {
+		&:hover {
+			background-color: $textColor;
+			color: #fff;
+		}
+	}
+}
+
+button.btn-default {
+	
+}
+
+// === and btn ========================================================================
+
+.input {
+
+}
+
+.textarea {
+
+}
+
+.link {
+
+}
+
+
+// === TEXT CONTETN BLOCK ========================================================================
+.text-content {
+	font-size: 15px;
+	line-height: 1.3333em;
+
+	& h1 {}
+	& h2 {
+		font-family: $mainFontFamily;
+		font-size: 40px;
+		font-weight: 600;
+		line-height: 1.2em;
+		text-align: center;
+		text-transform: uppercase;
+		margin-bottom: 0.76em;
+		text-align: left;
+
+		@media (max-width: $md3+px) {
+			font-size: 30px;
+		}
+		@media (max-width: $md4+px) {
+			font-size: 26px;
+		}
+	}
+	& h3 {}
+	& h4 {
+		font-size: 20px;
+		line-height: 1.2em;
+		margin-bottom: 0.8em;
+	}
+
+	& h5 {
+
+	}
+	& h6 {}
+
+	& p {
+		margin-bottom: 1.47em;
+
+		& ~ h4 {
+			margin-top: 1.85em;
+		}
+	}
+
+	& ul {
+
+	}
+
+	& ol {}
+
+	& figure {}
+
+	& hr {
+		display: block;
+		height: 3px;
+		width: 62px;
+		margin: 2.666em 0 2.5em;
+		background-color: #fff;
+		mix-blend-mode: difference;
+	}
+
+}
+// === and TEXT CONTETN BLOCK ========================================================================
+
+
+// ==== BLOCKS =====================================================
+@import "../common/header/#header";
+@import "../common/footer/#footer";
+// ==== BLOCKS =====================================================
+
+
+// ==== PAGES =====================================================
+
+	// ==== HOME =====================================================
+	@import "pages/#home";
+	// ==== AND HOME =====================================================
+	
+// ==== AND PAGES =====================================================
+
+

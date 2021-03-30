@@ -1,0 +1,160 @@
+.footer {
+
+    &__main {
+        margin-bottom: 73px;
+    }
+
+    &__bottom {
+        background-color: $textColor;
+    }
+
+    &__bottom-body {
+        display: flex;
+        align-items: center;
+        min-height: 42px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        justify-content: space-between;
+    }
+
+    &__copy {
+        font-size: 13px;
+        line-height: 26px;
+        color: #fff;
+    }
+
+    &__bottom-list {
+        display: flex;
+        font-size: 14px;
+        line-height: 26px;
+        color: #fff;
+        font-weight: 300;
+
+        & a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        & li {
+            &:not(:last-child) {
+                margin-right: 10px;
+                &:after {
+                    content: '|';
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.main-footer {
+    display: flex;
+
+    &__column {
+        &:nth-child(1) {
+            flex: 1 1 auto;
+            margin-right: 95px;
+
+            @media (max-width: $md2+px) {
+                margin-right: 20px;
+            }
+        }
+        &:nth-child(2) {
+            flex: 0 0 46.8%;
+        }
+    }
+
+    &__title {
+        font-size: 80px;
+        line-height: 1.1875em;
+        font-weight: 700;
+        margin-bottom: 31px;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        font-size: 15px;
+        line-height: 1.3333em;
+        margin-bottom: 39px;
+        & a {
+            color: $textColor;
+            text-decoration: underline;
+        }
+
+        & li:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+
+    & li {
+        margin-right: 21px;
+        margin-bottom: 21px;
+        flex: 0 0 auto;
+    }
+
+    &__link {
+        display: inline-block;
+        height: 40px;
+        transition: all .3s ease;
+
+        @media (min-width: 992px) {
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+
+        & img {
+            height: 100%;
+            width: auto;
+        }
+
+    }
+}
+
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        margin-bottom: 46px;
+    }
+
+    &__input {
+        height: 50px;
+        display: flex;
+        width: 100%;
+        background: transparent;
+        align-items: center;
+        border-bottom: 3px solid $textColor;
+        font-size: 18px;
+        line-height: 1em;
+        font-family: $mainFontFamily;
+
+        &::placeholder {
+            font-size: 18px;
+            line-height: 1em;
+            font-family: $mainFontFamily;
+            color: $textColor;
+        }
+    }
+
+    & button.btn-default {
+        background-color: transparent;
+        min-width: 160px;
+        margin-left: auto;
+
+        @media (min-width: 992px) {
+            &:hover {
+                background-color: $textColor;
+            }
+        }
+    }
+}

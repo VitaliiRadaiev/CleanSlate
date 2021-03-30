@@ -1,0 +1,148 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    transition: all .4s ease;
+
+    &._mix-mode {
+        mix-blend-mode: difference;
+    }
+
+    &._is-menu-open {
+        background-color: #fff;
+
+        &._mix-mode {
+            mix-blend-mode: normal;
+        }
+
+        & .header__logo {
+            & svg path {
+                fill: $textColor;
+            }
+        }
+
+        & .burger span {
+            background-color: $textColor;
+        }
+    }
+
+    &._is-scroll {
+        & .header__body {
+            min-height: 80px;
+
+            @media (max-width: $md2+px) {
+                min-height: 70px;
+            }
+        }
+    }
+
+    &__body {
+        min-height: 144px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        transition: all .6s ease;
+        @media (max-width: $md2+px) {
+            min-height: 90px;
+        }
+    }
+
+    &__logo {
+        margin-right: 30px;
+        width: 100%;
+        max-width: 248px;
+
+        & img {
+            width: 100%;
+            height: auto;
+        }
+
+        & svg {
+            width: 100%;
+            height: auto;
+
+            & path {
+                transition: all .4s ease;
+            }
+        }
+    }
+
+    &__menu {
+        margin-left: auto;
+        margin-top: 20px;
+
+        @media (max-width: $md2+px) {
+            margin-top: 0;
+        }
+    }
+
+    &__burger {
+        margin-left: auto;
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
+}
+
+.menu {
+    @media (max-width: $md2+px) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 30px 15px;
+        display: none;
+        box-shadow: 0 15px 20px rgba(#000,0.1);
+        overflow-y: auto;
+    }
+
+    &__list {
+        display: flex;
+
+        @media (max-width: $md2+px) {
+            display: block;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        & li {
+            &:not(:last-child) {
+                margin-right: 53px;
+
+                @media (max-width: $md2+px) {
+                    margin-right: 0;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    &__link {
+        color: #ffffff;
+        font-family: $mainFontFamily;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+
+        @media (max-width: $md2+px) {
+            font-size: 19px;
+            color: $textColor;
+        }
+
+        @media (min-width: 992px) {
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.burger-wrap {
+}
+.burger {
+}
