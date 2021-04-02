@@ -6,9 +6,6 @@
     z-index: 50;
     transition: all .4s ease;
 
-    &._mix-mode {
-        mix-blend-mode: difference;
-    }
 
     &._is-menu-open {
         background-color: #fff;
@@ -24,7 +21,7 @@
         }
 
         & .burger span {
-            background-color: $textColor;
+            background-color: $textColor !important;
         }
     }
 
@@ -60,6 +57,22 @@
             height: auto;
         }
 
+        &._color-black {
+            & svg {
+                & path {
+                    fill: $textColor;
+                }
+            }
+        }
+
+        &._color-white {
+            & svg {
+                & path {
+                    fill: #fff;
+                }
+            }
+        }
+
         & svg {
             width: 100%;
             height: auto;
@@ -81,9 +94,27 @@
 
     &__burger {
         margin-left: auto;
+
         @media (min-width: 992px) {
             display: none;
         }
+
+        & .burger {
+            &._color-black {
+                & span {
+                    background-color: $textColor;
+                }
+            }
+
+            &._color-white {
+                & span {
+                    background-color: #fff;
+                }
+            }
+        }
+
+
+
     }
 }
 
@@ -98,6 +129,16 @@
         display: none;
         box-shadow: 0 15px 20px rgba(#000,0.1);
         overflow-y: auto;
+
+        &.open {
+            & .menu__link {
+                color: $textColor !important;
+            }
+        }
+    }
+
+    @media (min-width: 992px) {
+        display: block !important;
     }
 
     &__list {
@@ -107,6 +148,17 @@
             display: block;
             overflow-y: auto;
             text-align: center;
+        }
+
+        &._color-black {
+            & .menu__link {
+                color: $textColor;
+            }
+        }
+        &._color-white {
+            & .menu__link {
+                color: #fff;
+            }
         }
 
         & li {

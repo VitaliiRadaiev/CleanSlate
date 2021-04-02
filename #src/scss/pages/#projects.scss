@@ -105,14 +105,25 @@
 .projects-card {
     display: block;
     position: relative;
-
+    color: #fff;
     @media (min-width: 992px) {
         &:hover {
             & .projects-card__img-poster {
-                & img {
-                    transform: scale(1.1);
+                opacity: 0;
+            }
 
-                }
+            & .projects-card__title {
+                opacity: 1;
+                transform: translate(0) scale(1);
+            }
+
+            & .projects-card__subtitle {
+                opacity: 1;
+                transform: translate(0) scale(1);
+            }
+
+            & .projects-card__video {
+                opacity: 1;
             }
         }
     }
@@ -123,10 +134,7 @@
         height: 0;
         padding-bottom: 61.5%;
         overflow: hidden;
-
-        & img {
-            transition: all 1s ease;
-        }
+        transition: all .4s ease;
     }
 
     &__video {
@@ -136,12 +144,58 @@
         left: 0;
         width: 100%;
         height: 100%;
-        display: none;
+        transition: all .4s ease;
+        object-fit: cover;
+        opacity: 0;
+        display: block !important;
+    }
+
+    &__text-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 10px 10px;
+    }
+
+    &__title {
+        font-size: 25px;
+        line-height: 1.2em;
+        font-weight: 600;
+        margin-bottom: 5px;
+
+        @media (min-width: 992px) {
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+        }
+    }
+
+    &__subtitle {
+        font-size: 12px;
+        line-height: 1.2em;
+        font-weight: 300;
+
+        @media (min-width: 992px) {
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(10px) scale(0.9);
+        }
     }
 }
 
 
-
+.fancybox-content {
+    & video {
+        opacity: 1;
+    }
+}
 
 .video-control {
     position: absolute;

@@ -139,7 +139,7 @@ spollerInit()
 if($('.anchor').length>0) {
 	$(".anchor").click(function() {
 	  var elementClick = $(this).attr("href")
-	  var destination = $(elementClick).offset().top - 50;
+	  var destination = $(elementClick).offset().top - 70;
 	  jQuery("html:not(:animated),body:not(:animated)").animate({
 		scrollTop: destination
 	  }, 600);

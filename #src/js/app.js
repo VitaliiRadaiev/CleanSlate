@@ -43,7 +43,32 @@ $(document).ready(function () {
 
 	@@include('_function.js');
 	@@include('../common/burger/burger.js');
+	@@include('../common/footer/footer.js');
 	@@include('pages/#home.js');
+
+
+
+	let projectsCards = document.querySelectorAll('.projects-card');
+    if(projectsCards.length) {
+        projectsCards.forEach(item => {
+            let video = item.querySelector('video');
+            if(video) {
+
+                item.addEventListener('mouseenter', () => {
+                    if(document.documentElement.clientWidth > 991) {
+                        video.play();
+                    }
+                })
+
+                item.addEventListener('mouseleave', () => {
+                    if(document.documentElement.clientWidth > 991) {
+                        video.pause();
+                    }
+                })
+            }
+
+        })
+    } 
 
 
 
@@ -70,9 +95,9 @@ $(document).ready(function () {
 					let video = slide.querySelector('video');
 					let content = slide.querySelector('.fancybox-content');
 
-					if(video.classList.contains('latest-projects__item-video')) {
-						video.muted = false;
-					}
+					
+					video.muted = false;
+					
 
 					if(!content.querySelector('.video-control')) {
 						let videoControl = document.createElement('div');
@@ -132,6 +157,14 @@ $(document).ready(function () {
 					video.muted = true;
 				})
 			}
+
+			let projectsCards = document.querySelectorAll('.projects-card');
+			if(projectsCards.length) {
+				projectsCards.forEach(item => {
+					let video = item.querySelector('video');
+					video.muted = true;
+				})
+			} 
 		}
 	});
 	

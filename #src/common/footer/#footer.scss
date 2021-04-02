@@ -117,6 +117,10 @@
         & a {
             color: $textColor;
             text-decoration: underline;
+
+            &[href^="tel:"] {
+                text-decoration: none;
+            }
         }
 
         & li:not(:last-child) {
@@ -161,6 +165,26 @@
 
     &__item {
         margin-bottom: 45px;
+        position: relative;
+
+        &._focus {
+            & .footer-form__label {
+                top: 0%;
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 18px;
+        line-height: 1em;
+        font-family: $mainFontFamily;
+        color: $textColor;
+        transition: all .2s ease;
+        display: inline-block;
     }
 
     &__input {
