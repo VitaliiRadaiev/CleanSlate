@@ -118,7 +118,7 @@
             color: $textColor;
             text-decoration: underline;
 
-            &[href^="tel:"] {
+            &[href^="tel:"], &[href^="https://wa.me"] {
                 text-decoration: none;
             }
         }

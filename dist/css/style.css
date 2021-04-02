@@ -2823,7 +2823,8 @@ textarea {
   text-decoration: underline;
 }
 
-.main-footer__list a[href^="tel:"] {
+.main-footer__list a[href^="tel:"],
+.main-footer__list a[href^="https://wa.me"] {
   text-decoration: none;
 }
 
