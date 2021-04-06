@@ -181,7 +181,7 @@ spollerInit()
 
 if($('.anchor').length>0) {
 	$(".anchor").click(function() {
-	  var elementClick = $(this).attr("href")
+	  var elementClick = $(this).attr("href").match(/#\w+$/gi).join(''); 
 	  var destination = $(elementClick).offset().top - 70;
 	  jQuery("html:not(:animated),body:not(:animated)").animate({
 		scrollTop: destination
@@ -341,9 +341,10 @@ if($('.anchor').length>0) {
             let menu = document.querySelector('.header__menu');
             menuItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    header.classList.remove('_is-menu-open');
-                    menu.classList.remove('open');
-                    _slideUp(menu);
+                    // header.classList.remove('_is-menu-open');
+                    // menu.classList.remove('open');
+                    // _slideUp(menu);
+                    burgerBtnAnimation();
                 })
             })
         }

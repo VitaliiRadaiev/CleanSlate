@@ -114,9 +114,10 @@
             let menu = document.querySelector('.header__menu');
             menuItems.forEach(item => {
                 item.addEventListener('click', () => {
-                    header.classList.remove('_is-menu-open');
-                    menu.classList.remove('open');
-                    _slideUp(menu);
+                    // header.classList.remove('_is-menu-open');
+                    // menu.classList.remove('open');
+                    // _slideUp(menu);
+                    burgerBtnAnimation();
                 })
             })
         }
