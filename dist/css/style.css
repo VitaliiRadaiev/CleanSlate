@@ -3163,9 +3163,7 @@ textarea {
   width: 152px;
   border-radius: 50%;
   padding: 26px 10px 20px;
-  display: block;
-  right: 30px;
-  bottom: 30px;
+  display: none;
 }
 
 .promo-header__sound-play svg {
