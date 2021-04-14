@@ -3161,9 +3161,10 @@ textarea {
   height: 152px;
   width: 152px;
   border-radius: 50%;
-  background-color: #fff;
   padding: 26px 10px 20px;
-  display: none;
+  display: block;
+  right: 30px;
+  bottom: 30px;
 }
 
 .promo-header__sound-play svg {
@@ -3207,21 +3208,6 @@ textarea {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg);
   }
-}
-
-.promo-header__sound-play:after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  border-radius: 50%;
-  -webkit-animation: rotateAnim 6s linear infinite;
-          animation: rotateAnim 6s linear infinite;
-  -webkit-box-shadow: inset 0px 15px 20px -5px rgba(0, 0, 0, 0.5);
-          box-shadow: inset 0px 15px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
 @-webkit-keyframes rotateAnim {

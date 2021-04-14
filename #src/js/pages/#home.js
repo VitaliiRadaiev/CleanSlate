@@ -269,29 +269,6 @@
                 soundPlay.style.left = (e.pageX - 76) + 'px';
                 soundMuted.style.top = (e.pageY - 25) + 'px';
                 soundMuted.style.left = (e.pageX - 25) + 'px';
-                // if(e.pageY > promoHeader.clientHeight) {
-
-                //     anime({
-                //         targets: soundPlay,
-                //         opacity: [1,0],
-                //         scale: [1, 0],
-                //         easing: 'linear',
-                //         duration: 200
-                //     })
-    
-                //     anime({
-                //         targets: soundMuted,
-                //         opacity: [1,0],
-                //         easing: 'linear',
-                //         duration: 200
-                //     })
-
-                //     setTimeout(() => {
-                //         soundPlay.style.display = 'none';
-                //         soundMuted.style.display = 'none';
-                //     }, 200)
-
-                // }
             }
         })
 
