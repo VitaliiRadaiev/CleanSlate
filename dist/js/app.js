@@ -594,11 +594,29 @@ if(waypoints.length) {
                 soundPlay.style.left = (e.pageX - 76) + 'px';
                 soundMuted.style.top = (e.pageY - 25) + 'px';
                 soundMuted.style.left = (e.pageX - 25) + 'px';
+                // if(e.pageY > promoHeader.clientHeight) {
 
-                if(e.pageY > promoHeader.clientHeight) {
-                    soundPlay.style.display = 'none';
-                    soundMuted.style.display = 'none';
-                }
+                //     anime({
+                //         targets: soundPlay,
+                //         opacity: [1,0],
+                //         scale: [1, 0],
+                //         easing: 'linear',
+                //         duration: 200
+                //     })
+    
+                //     anime({
+                //         targets: soundMuted,
+                //         opacity: [1,0],
+                //         easing: 'linear',
+                //         duration: 200
+                //     })
+
+                //     setTimeout(() => {
+                //         soundPlay.style.display = 'none';
+                //         soundMuted.style.display = 'none';
+                //     }, 200)
+
+                // }
             }
         })
 
@@ -644,14 +662,14 @@ if(waypoints.length) {
             }
         })
 
-        soundPlay.addEventListener('click', () => {
-            video.muted = false;
-            promoHeader.classList.add('_is-sound');
-        })
-
-        soundMuted.addEventListener('click', () => {
-            video.muted = true;
-            promoHeader.classList.remove('_is-sound');
+        promoHeader.addEventListener('click', () => {
+            if(video.muted) {
+                video.muted = false;
+                promoHeader.classList.add('_is-sound');
+            } else {
+                video.muted = true;
+                promoHeader.classList.remove('_is-sound');
+            }
         })
     }
 

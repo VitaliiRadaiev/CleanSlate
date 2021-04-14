@@ -3163,26 +3163,50 @@ textarea {
   border-radius: 50%;
   background-color: #fff;
   padding: 26px 10px 20px;
-  -webkit-animation: sound-play-anim 0.4s ease;
-          animation: sound-play-anim 0.4s ease;
   display: none;
 }
 
-.promo-header__sound-play:before {
+.promo-header__sound-play svg {
   position: absolute;
-  content: "";
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 115%;
-  height: 115%;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  border-top: 2px solid rgba(119, 119, 119, 0.5);
-  -webkit-animation: rotateAnim 4s linear infinite;
-          animation: rotateAnim 4s linear infinite;
+  width: 90%;
+  height: 90%;
+}
+
+.promo-header__sound-play svg ._circle {
+  -webkit-animation: rotateAnim2 4s linear infinite;
+          animation: rotateAnim2 4s linear infinite;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+}
+
+@-webkit-keyframes rotateAnim2 {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotateAnim2 {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
 }
 
 .promo-header__sound-play:after {
@@ -3194,8 +3218,8 @@ textarea {
   height: 100%;
   z-index: 3;
   border-radius: 50%;
-  -webkit-animation: rotateAnim 4s linear infinite;
-          animation: rotateAnim 4s linear infinite;
+  -webkit-animation: rotateAnim 6s linear infinite;
+          animation: rotateAnim 6s linear infinite;
   -webkit-box-shadow: inset 0px 15px 20px -5px rgba(0, 0, 0, 0.5);
           box-shadow: inset 0px 15px 20px -5px rgba(0, 0, 0, 0.5);
 }
@@ -3876,6 +3900,14 @@ textarea {
 
   .footer-form button.btn-default:hover {
     background-color: #101010;
+  }
+
+  .promo-header__sound-play {
+    pointer-events: none;
+  }
+
+  .promo-header__sound-muted {
+    pointer-events: none;
   }
 
   .latest-projects__item:hover .latest-projects__item-title {

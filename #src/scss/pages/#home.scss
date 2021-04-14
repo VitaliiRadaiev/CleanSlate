@@ -100,8 +100,34 @@
         border-radius: 50%;
         background-color: #fff;
         padding: 26px 10px 20px;
-        animation: sound-play-anim 0.4s ease;
         display: none;
+
+        @media (min-width: 992px) {
+            pointer-events: none;
+        }
+
+        & svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 90%;
+            height: 90%;
+
+            & ._circle {
+                animation: rotateAnim2 4s linear infinite;
+                transform-origin: center;
+            }
+
+            @keyframes rotateAnim2 {
+                from {
+                    transform: rotate(0);
+                }
+                to {
+                    transform: rotate(-360deg);
+                }
+            }
+        }
 
         @media (max-width: $md2+px) {
             display: block;
@@ -128,17 +154,17 @@
         }
 
         &:before {
-            position: absolute;
-            content: "";
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 115%;
-            height: 115%;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            border-top: 2px solid rgba(119, 119, 119 ,0.5);
-            animation: rotateAnim 4s linear infinite;
+            // position: absolute;
+            // content: "";
+            // top: 50%;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
+            // width: 115%;
+            // height: 115%;
+            // border-radius: 50%;
+            // border: 2px solid #fff;
+            // border-top: 2px solid rgba(119, 119, 119 ,0.5);
+            //animation: rotateAnim 4s linear infinite;
         }
 
         &:after {
@@ -150,7 +176,7 @@
             height: 100%;
             z-index: 3;
             border-radius: 50%;
-            animation: rotateAnim 4s linear infinite;
+            animation: rotateAnim 6s linear infinite;
             box-shadow: inset 0px 15px 20px -5px rgba(#000, 0.5);
             // /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.4+0,0+75 */
             // background: -moz-linear-gradient(top,  rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 75%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
@@ -197,6 +223,10 @@
         transform: rotate(45deg);
         animation: sound-play-anim 0.4s ease;
         display: none;
+
+        @media (min-width: 992px) {
+            pointer-events: none;
+        }
 
         @media (max-width: $md2+px) {
             display: block;
