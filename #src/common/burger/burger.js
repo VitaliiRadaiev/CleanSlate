@@ -9,7 +9,7 @@
 
 		header.classList.toggle('_is-menu-open');
 		document.querySelector(`.${classNameElem}`).classList.toggle('open');
-		_slideToggle(document.querySelector(`.${classNameElem}`));
+		document.querySelector('body').classList.toggle('lock')
 	}
 	$('.burger').click((e) => burgerBtnAnimation(e));
 // === Burger Handler =====================================================================	

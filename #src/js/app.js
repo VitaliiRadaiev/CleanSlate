@@ -5,7 +5,6 @@ var isMobile = { Android: function () { return navigator.userAgent.match(/Androi
 
 $(document).ready(function () {
 	document.body.classList.add('is-load');
-
 	// === Проверка, поддержка браузером формата webp ==================================================================
 
 	function testWebP(callback) {
@@ -44,9 +43,117 @@ $(document).ready(function () {
 	@@include('_function.js');
 	@@include('../common/burger/burger.js');
 	@@include('../common/footer/footer.js');
+	@@include('../common/animation/animation.js');
 	@@include('pages/#home.js');
 
+	let projectNav = document.querySelector('.projects__nav');
+	if(projectNav) {
+		let filterItems = projectNav.querySelectorAll('.projects__nav-link');
+		let iso = $('.projects__list').isotope( {
+			// options
+			itemSelector: 'li',
+			layoutMode: 'fitRows',
+		});
 
+
+		if(filterItems.length) {
+			let arr = [];
+            let oldValue = 0;
+
+
+			filterItems.forEach((item, index) => {
+				let	id = item.dataset.id;
+				
+				arr.push(item.getBoundingClientRect().left - 15);
+
+				item.addEventListener('click', (e) => {
+					e.preventDefault();
+
+					let left = arr[index] - (document.documentElement.clientWidth / 2) + ((item.getBoundingClientRect().width + 30) / 2)
+                    moveTo(oldValue, left, projectNav);
+                    oldValue = left < 0 ? 0 : left;
+
+					item.classList.add('active');
+					filterItems.forEach(i => {
+						if(i == item) {
+							return;
+						}
+
+						i.classList.remove('active');
+					})
+
+					if(!id) {
+						iso.isotope({ filter: '*' })
+					} else {
+						iso.isotope({ filter: `li[data-id="${id}"]` })
+					}
+
+				})
+			});
+
+			projectNav.addEventListener('scroll', () => {
+				oldValue = projectNav.scrollLeft;
+			});
+
+			window.addEventListener('resize', () => {
+                arr = [];
+                projectNav.scrollLeft = 0;
+
+                filterItems.forEach(i => {
+                    arr.push(i.getBoundingClientRect().left - 15);
+                })
+            })
+
+		}
+
+		async function moveTo(from, to, el = false) {
+			if(!el) {
+				console.log('ele is not correct');
+				return
+			}
+	
+			let count = from;
+	
+			let promise = await new Promise((resolve, rehect) => {
+	
+				if(from <= to) {
+					let time = (1000 / ((to - from) / 1000 )) / 1000;
+					
+					let id = setInterval(() => {
+						if(count >= to) {
+							clearInterval(id);
+							resolve();
+							return
+						}
+						el.scrollLeft = count;
+						count = count + 2;
+					}, time < 0 ? 1 : time)
+				} else if (from >= to) {
+					let time = (1000 / ((from - to) / 1000 )) / 1000;
+					let id = setInterval(() => {
+						if(count <= to) {
+							clearInterval(id);
+							resolve();
+							return
+						}
+						el.scrollLeft = count;
+						count = count - 2;
+					}, time < 0 ? 1 : time)
+				}
+			})
+	
+		}
+	}
+
+	let projectList = document.querySelector('.projects__list');
+	  if(projectList) {
+		for(let i of projectList.children) {
+			let id = i.querySelector('a').dataset.id;
+			if(id) {
+				i.setAttribute('data-id', id);
+			}
+		}
+	  }
 
 	let projectsCards = document.querySelectorAll('.projects-card');
     if(projectsCards.length) {
@@ -87,6 +194,10 @@ $(document).ready(function () {
 
 
 	$("[data-fancybox]").fancybox({
+		video: {
+			autoStart: false
+		},
+		animationDuration: 600,
 		afterShow   : function( instance, slide ) {
 			let slides = document.querySelectorAll('.fancybox-stage .fancybox-slide');
 			if(slides.length) {
@@ -95,7 +206,6 @@ $(document).ready(function () {
 					let video = slide.querySelector('video');
 					let content = slide.querySelector('.fancybox-content');
 
-					
 					video.muted = false;
 					
 
@@ -167,7 +277,15 @@ $(document).ready(function () {
 			} 
 		}
 	});
-	
 });
 
-//@@include('plagins/lazy-load.js');
+window.addEventListener('DOMContentLoaded', () => {
+	let video = document.querySelector('.promo-header__video');
+
+	if(video) {
+		video.play();
+	}
+
+	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`
+	document.body.insertAdjacentHTML('afterbegin',loaderHtml);
+})

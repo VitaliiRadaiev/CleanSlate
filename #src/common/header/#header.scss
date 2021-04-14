@@ -5,23 +5,22 @@
     width: 100%;
     z-index: 50;
     transition: all .4s ease;
-
+    pointer-events: none;
 
     &._is-menu-open {
-        background-color: #fff;
-
+       
         &._mix-mode {
             mix-blend-mode: normal;
         }
 
         & .header__logo {
             & svg path {
-                fill: $textColor;
+                fill: #fff;
             }
         }
 
         & .burger span {
-            background-color: $textColor !important;
+            background-color: #fff !important;
         }
     }
 
@@ -51,6 +50,16 @@
         margin-right: 30px;
         width: 100%;
         max-width: 248px;
+        pointer-events: auto;
+        transition: all .4s ease;
+        opacity: 0;
+        @media (max-width: $md3+px) {
+            max-width: 190px;
+        }
+
+        @media (max-width: $md4+px) {
+            max-width: 160px;
+        }
 
         & img {
             width: 100%;
@@ -92,9 +101,35 @@
         }
     }
 
+    &__social {
+        @media (min-width: 992px) {
+            display: none;
+        }
+
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        transition: all .4s ease;
+        & li {
+            flex: 0 0 auto;
+            margin: 0 15px;
+        }
+
+        &-link {
+            & svg {
+                height: 30px;
+                width: auto;
+
+                & path {
+                    fill: #fff
+                }
+            }
+        }
+    }
+
     &__burger {
         margin-left: auto;
-
+        pointer-events: auto;
         @media (min-width: 992px) {
             display: none;
         }
@@ -121,18 +156,50 @@
 .menu {
     @media (max-width: $md2+px) {
         position: absolute;
-        top: 100%;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        height: 100vh;
+        background-color: rgba(#000, 0.95);
         padding: 30px 15px;
-        display: none;
-        box-shadow: 0 15px 20px rgba(#000,0.1);
+        overflow-y: auto;
+        z-index: -1;
+        opacity: 0;
+        transition: all .4s ease;
+        visibility: hidden;
+        pointer-events: none;
+        transform: scale(0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         overflow-y: auto;
 
+        & * {
+            pointer-events: none;
+        }
+
         &.open {
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+            transform: scale(1);
+            & * {
+                pointer-events: auto;
+            }
+
             & .menu__link {
-                color: $textColor !important;
+                color: #fff !important;
+            }
+
+            & .menu__list li {
+                transition: all .4s ease .6s;
+                transform: translate(0);
+                opacity: 1;
+            }
+
+            & .header__social {
+                transition: all .4s ease 1s;
+                opacity: 1;
             }
         }
     }
@@ -143,11 +210,17 @@
 
     &__list {
         display: flex;
+        
+
+        @media (min-width: 992px) {
+            pointer-events: auto;
+            padding: 20px 0 20px;
+        }
 
         @media (max-width: $md2+px) {
-            display: block;
-            overflow-y: auto;
-            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
         }
 
         &._color-black {
@@ -170,6 +243,12 @@
                     margin-bottom: 30px;
                 }
             }
+
+            @media (max-width: $md2+px) {
+                transition: all .4s ease;
+                opacity: 0;
+                transform: translateY(15px);
+            }
         }
     }
 
@@ -179,7 +258,10 @@
         font-size: 15px;
         font-weight: 400;
         text-transform: uppercase;
-        transition: all 0.3s ease;
+        //transition: all 0.3s ease;
+        display: inline-block;
+        opacity: 0;
+        
 
         @media (max-width: $md2+px) {
             font-size: 19px;
@@ -190,6 +272,10 @@
             &:hover {
                 opacity: 0.7;
             }
+        }
+
+        & > span {
+            display: inline-block;
         }
     }
 }

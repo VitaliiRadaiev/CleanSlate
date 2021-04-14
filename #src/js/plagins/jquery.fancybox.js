@@ -3305,7 +3305,7 @@
   // Default click handler for "fancyboxed" links
   // ============================================
 
-  function _run(e, opts) {
+  async function _run(e, opts) {
     var items = [],
       index = 0,
       $target,
@@ -3318,6 +3318,36 @@
     }
 
     e.preventDefault();
+   console.log(e);
+   
+   let pause = await new Promise((resolve) => {
+     anime.timeline({
+       
+     })
+     .add({
+        targets: '.loader-layer',
+        translateY: ['100%', 0],
+        duration: 1000,
+        easing: 'linear',
+     })
+     .add({
+       targets: '.loader-layer__line span',
+       width: ['0%', '100%'],
+       duration: 1500,
+       easing: 'easeInExpo',
+     })
+     .add({
+      targets: '.loader-layer',
+      translateY: ['0%', '-100%'],
+      duration: 1000,
+      easing: 'easeInExpo',
+      delay: 500
+     })
+
+     setTimeout(() => {
+      resolve();
+     },1200)
+   }) 
 
     opts = opts || {};
 
@@ -3394,6 +3424,7 @@
   $D.on("click.fb-start", "[data-fancybox]", _run);
 
   // Enable "trigger elements"
+
   // =========================
 
   $D.on("click.fb-start", "[data-fancybox-trigger]", function (e) {

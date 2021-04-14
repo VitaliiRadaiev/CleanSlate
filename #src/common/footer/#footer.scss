@@ -39,9 +39,8 @@
         font-weight: 300;
 
         @media (max-width: 575px) {
-            display: block;
-            text-align: center;
-            margin-bottom: 15px;
+           flex-wrap: wrap;
+           justify-content: center;
         }
 
         & a {
@@ -51,13 +50,13 @@
 
         & li {
             &:not(:last-child) {
-                @media (min-width: 576px) {
+                
                     margin-right: 8px;
                     &:after {
                         content: '|';
                         margin-left: 5px;
                     }
-                }
+                
 
             }
         }
@@ -85,6 +84,10 @@
 
             @media (max-width: $md3+px) {
                 margin-right: 0;
+
+                & .main-footer__column {
+                    margin-bottom: 30px;
+                }
             }
         }
         &:nth-child(2) {
@@ -93,21 +96,15 @@
     }
 
     &__title {
-        font-size: 80px;
-        line-height: 1.1875em;
-        font-weight: 700;
-        margin-bottom: 23px;
+        font-family: $mainFontFamily;
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 1.3em;
         text-transform: uppercase;
-
-        @media (max-width: $md2+px) {
-            font-size: 60px;
-        }
+    
         @media (max-width: $md3+px) {
             font-size: 40px;
         }
-        // @media (max-width: $md4+px) {
-        //     font-size: 26px;
-        // }
     }
 
     &__list {
@@ -212,7 +209,7 @@
         font-size: 18px;
         line-height: 1em;
         font-family: $mainFontFamily;
-
+        border-radius: 0;
         &::placeholder {
             font-size: 18px;
             line-height: 1em;

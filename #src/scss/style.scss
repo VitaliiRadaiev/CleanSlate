@@ -158,6 +158,37 @@ textarea {
 }
 
 
+.loader-layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: #000;
+    z-index: 99999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateY(100%);
+	
+	&__line {
+		width: 300px;
+		max-width: 80%;
+		height: 2px;
+		position: relative;
+		
+		& > span {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 0%;
+			background-color: #fff;
+		}
+	}
+}
+
 
 .center {
 	text-align: center;
