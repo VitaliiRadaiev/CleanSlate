@@ -3159,8 +3159,8 @@ textarea {
 .promo-header__sound-play {
   position: absolute;
   z-index: 3;
-  height: 182px;
-  width: 182px;
+  height: 202px;
+  width: 202px;
   border-radius: 50%;
   padding: 26px 10px 20px;
   display: none;
@@ -3177,15 +3177,15 @@ textarea {
   height: 90%;
 }
 
-.promo-header__sound-play svg ._circle {
-  -webkit-animation: rotateAnim2 4s linear infinite;
-          animation: rotateAnim2 4s linear infinite;
+.promo-header__sound-play svg.text {
+  -webkit-animation: rotateAnim 4s linear infinite;
+          animation: rotateAnim 4s linear infinite;
   -webkit-transform-origin: center;
       -ms-transform-origin: center;
           transform-origin: center;
 }
 
-.promo-header__sound-play svg ._icon {
+.promo-header__sound-play svg.graf {
   display: none;
 }
 
@@ -3906,7 +3906,7 @@ textarea {
     pointer-events: none;
   }
 
-  .promo-header__sound-play svg ._icon {
+  .promo-header__sound-play svg.graf {
     display: block;
   }
 
