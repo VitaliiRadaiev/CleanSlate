@@ -3159,8 +3159,8 @@ textarea {
 .promo-header__sound-play {
   position: absolute;
   z-index: 3;
-  height: 152px;
-  width: 152px;
+  height: 182px;
+  width: 182px;
   border-radius: 50%;
   padding: 26px 10px 20px;
   display: none;
@@ -3196,8 +3196,8 @@ textarea {
   }
 
   to {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
@@ -3208,8 +3208,8 @@ textarea {
   }
 
   to {
-    -webkit-transform: rotate(-360deg);
-            transform: rotate(-360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
