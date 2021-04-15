@@ -3178,8 +3178,8 @@ textarea {
 }
 
 .promo-header__sound-play svg.text {
-  -webkit-animation: rotateAnim 4s linear infinite;
-          animation: rotateAnim 4s linear infinite;
+  -webkit-animation: rotateAnim 8s linear infinite;
+          animation: rotateAnim 8s linear infinite;
   -webkit-transform-origin: center;
       -ms-transform-origin: center;
           transform-origin: center;
