@@ -118,6 +118,14 @@
                 transform-origin: center;
             }
 
+            & ._icon {
+                display: none;
+
+                @media (min-width: 992px) {
+                    display: block;
+                }
+            }
+
             @keyframes rotateAnim2 {
                 from {
                     transform: rotate(0);
@@ -125,6 +133,21 @@
                 to {
                     transform: rotate(-360deg);
                 }
+            }
+        }
+
+        & svg.sound {
+            width: 25%;
+            height: auto;
+            left: 49%;
+            display: none;
+
+            @media (max-width: $md2+px) {
+                display: block;
+            }
+
+            & path {
+                fill: #fff;
             }
         }
 

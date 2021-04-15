@@ -3185,6 +3185,10 @@ textarea {
           transform-origin: center;
 }
 
+.promo-header__sound-play svg ._icon {
+  display: none;
+}
+
 @-webkit-keyframes rotateAnim2 {
   from {
     -webkit-transform: rotate(0);
@@ -3207,6 +3211,17 @@ textarea {
     -webkit-transform: rotate(-360deg);
             transform: rotate(-360deg);
   }
+}
+
+.promo-header__sound-play svg.sound {
+  width: 25%;
+  height: auto;
+  left: 49%;
+  display: none;
+}
+
+.promo-header__sound-play svg.sound path {
+  fill: #fff;
 }
 
 @-webkit-keyframes rotateAnim {
@@ -3891,6 +3906,10 @@ textarea {
     pointer-events: none;
   }
 
+  .promo-header__sound-play svg ._icon {
+    display: block;
+  }
+
   .promo-header__sound-muted {
     pointer-events: none;
   }
@@ -4098,6 +4117,10 @@ textarea {
 
   .promo-header__title {
     font-size: 40px;
+  }
+
+  .promo-header__sound-play svg.sound {
+    display: block;
   }
 
   .promo-header__sound-play {
