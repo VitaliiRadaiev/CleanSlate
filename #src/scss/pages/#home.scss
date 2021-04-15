@@ -164,7 +164,8 @@
             height: 80px;
             width: 80px;
             right: 15px;
-            bottom: 15px;
+            top: 54%;
+            transform: translateY(-50%);
 
             & .promo-header__sound-play-icon {
                 margin-bottom: 5px;

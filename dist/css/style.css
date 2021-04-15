@@ -4232,7 +4232,10 @@ textarea {
     height: 80px;
     width: 80px;
     right: 15px;
-    bottom: 15px;
+    top: 54%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
 
   .promo-header__sound-play .promo-header__sound-play-icon {
