@@ -500,17 +500,17 @@ if(waypoints.length) {
 
                    
                     isScroll = window.pageYOffset;
-     
+                    header.style.transform = "translateY(-100%)";
 
                     if(isHeaderOpen) {
-                        header.style.transform = "translateY(-100%)";
-                        isAnimation = true;
-                        clearTimeout(timeid1);
-                        timeid1 = setTimeout(() => {
-                            isAnimation = false;
+                        //header.style.transform = "translateY(-100%)";
+                        // isAnimation = true;
+                        // clearTimeout(timeid1);
+                        // timeid1 = setTimeout(() => {
+                        //     isAnimation = false;
                            
-                           // headeItemsColorHandler()
-                        }, 400)
+                        //    // headeItemsColorHandler()
+                        // }, 400)
                     }
 
                     isHeaderOpen = false
@@ -520,19 +520,19 @@ if(waypoints.length) {
 
                
                 isScroll = window.pageYOffset;
-             
+                header.style.transform = "translateY(0%)";
 
                 if(!isHeaderOpen) {
-                 header.style.transform = "translateY(0%)";
-                    isAnimation = true;
-                    //clearTimeout(timeid2);
-                    timeid2 = setTimeout(() => {
-                        isAnimation = false;
-                        if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
-                            headeItemsColorHandler();
-                        }
-                        isHeaderOpen = true
-                    }, 400)
+                // header.style.transform = "translateY(0%)";
+                    // isAnimation = true;
+                    // //clearTimeout(timeid2);
+                    // timeid2 = setTimeout(() => {
+                    //     isAnimation = false;
+                    //     if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
+                    //         headeItemsColorHandler();
+                    //     }
+                    //     isHeaderOpen = true
+                    // }, 400)
                 }
                 
             }
@@ -553,8 +553,8 @@ if(waypoints.length) {
 
             if(wrapper.classList.contains('home')) {
                 if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
-                    headeItemsColorHandler();
-
+                    //headeItemsColorHandler();
+                    header.classList.add('_bg-white');
                 } else {
                     logo.classList.remove('_color-black');
                     menu.classList.remove('_color-black');
@@ -562,9 +562,13 @@ if(waypoints.length) {
                     menu.classList.remove('_color-white');
                     burger.classList.remove('_color-black');
                     burger.classList.remove('_color-white');
+                    header.classList.remove('_bg-white');
                 }
             } else if(window.pageYOffset > 200){
-                headeItemsColorHandler();
+                //headeItemsColorHandler();
+                header.classList.add('_bg-white');
+            } else if(window.pageYOffset <= 200) {
+                header.classList.remove('_bg-white');
             }
         })
 

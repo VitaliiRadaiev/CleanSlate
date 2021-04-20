@@ -157,6 +157,11 @@ textarea {
 	appearance: none;
 }
 
+.fancybox-is-open .fancybox-bg {
+	opacity: 1;
+	background: #000;
+}
+
 
 .loader-layer {
 	position: fixed;
