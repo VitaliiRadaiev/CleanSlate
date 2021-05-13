@@ -280,12 +280,7 @@ $(document).ready(function () {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-	let video = document.querySelector('.promo-header__video');
-
-	if(video) {
-		video.play();
-	}
-
-	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`
+	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`;
 	document.body.insertAdjacentHTML('afterbegin',loaderHtml);
 })
+ 
