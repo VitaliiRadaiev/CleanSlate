@@ -4254,10 +4254,10 @@ textarea {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    height: 80px;
-    width: 80px;
+    height: 115px;
+    width: 115px;
     right: 15px;
-    top: 54%;
+    top: 67%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
