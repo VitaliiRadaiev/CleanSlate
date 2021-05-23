@@ -411,3 +411,10 @@ button.btn-default {
 // ==== AND PAGES =====================================================
 
 
+.html5-video-player .video-stream {
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover !important;
+}

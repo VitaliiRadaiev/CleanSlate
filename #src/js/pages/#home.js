@@ -177,17 +177,6 @@
                     isScroll = window.pageYOffset;
                     header.style.transform = "translateY(-100%)";
 
-                    if (isHeaderOpen) {
-                        //header.style.transform = "translateY(-100%)";
-                        // isAnimation = true;
-                        // clearTimeout(timeid1);
-                        // timeid1 = setTimeout(() => {
-                        //     isAnimation = false;
-
-                        //    // headeItemsColorHandler()
-                        // }, 400)
-                    }
-
                     isHeaderOpen = false
 
                 }
@@ -196,19 +185,6 @@
 
                 isScroll = window.pageYOffset;
                 header.style.transform = "translateY(0%)";
-
-                if (!isHeaderOpen) {
-                    // header.style.transform = "translateY(0%)";
-                    // isAnimation = true;
-                    // //clearTimeout(timeid2);
-                    // timeid2 = setTimeout(() => {
-                    //     isAnimation = false;
-                    //     if(window.pageYOffset > (document.documentElement.clientHeight - 50)) {
-                    //         headeItemsColorHandler();
-                    //     }
-                    //     isHeaderOpen = true
-                    // }, 400)
-                }
 
             }
 
@@ -318,39 +294,46 @@
             }
         })
 
-        promoHeader.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                promoHeader.classList.add('_is-sound');
-            } else {
-                video.muted = true;
-                promoHeader.classList.remove('_is-sound');
-            }
-        })
 
 
-        if (video) {
-            for (let source of video.children) {
-                source.src = source.dataset.src;
-            }
 
-            setTimeout(() => {
-                video.load();
-                video.addEventListener('canplaythrough', () => {
-                    video.play();
-                })
-            }, 0)
 
-            let timerId = setInterval(() => {
-                if(video.paused) {
-                    video.play();
-                } else {
-                    clearInterval(timerId)
-                }
-            }, 300);
 
-            }
-        
+
+// ================== video ===================================================
+        // promoHeader.addEventListener('click', () => {
+        //     if (video.muted) {
+        //         video.muted = false;
+        //         promoHeader.classList.add('_is-sound');
+        //     } else {
+        //         video.muted = true;
+        //         promoHeader.classList.remove('_is-sound');
+        //     }
+        // })
+
+
+        // if (video) {
+        //     for (let source of video.children) {
+        //         source.src = source.dataset.src;
+        //     }
+
+        //     setTimeout(() => {
+        //         video.load();
+        //         video.addEventListener('canplaythrough', () => {
+        //             video.play();
+        //         })
+        //     }, 0)
+
+        //     let timerId = setInterval(() => {
+        //         if(video.paused) {
+        //             video.play();
+        //         } else {
+        //             clearInterval(timerId)
+        //         }
+        //     }, 500);
+
+        //     }
+// ================== and video ===================================        
     }
 
 
