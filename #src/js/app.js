@@ -198,88 +198,88 @@ $(document).ready(function () {
 
 
 	$("[data-fancybox]").fancybox({
-		video: {
-			autoStart: false
+		youtube : {
+			autoplay: 0,
 		},
 		animationDuration: 600,
-		afterShow   : function( instance, slide ) {
-			let slides = document.querySelectorAll('.fancybox-stage .fancybox-slide');
-			if(slides.length) {
+		// afterShow   : function( instance, slide ) {
+		// 	let slides = document.querySelectorAll('.fancybox-stage .fancybox-slide');
+		// 	if(slides.length) {
 
-				slides.forEach(slide => {
-					let video = slide.querySelector('video');
-					let content = slide.querySelector('.fancybox-content');
+		// 		slides.forEach(slide => {
+		// 			let video = slide.querySelector('video');
+		// 			let content = slide.querySelector('.fancybox-content');
 
-					video.muted = false;
+		// 			video.muted = false;
 					
 
-					if(!content.querySelector('.video-control')) {
-						let videoControl = document.createElement('div');
-						videoControl.className = 'video-control';
+		// 			if(!content.querySelector('.video-control')) {
+		// 				let videoControl = document.createElement('div');
+		// 				videoControl.className = 'video-control';
 	
-						let playPauseBtn = document.createElement('div');
-						playPauseBtn.className = 'play-pause-btn icon-play_circle_filled';
-						playPauseBtn.setAttribute('data-fancybox-play-pouse', '');
+		// 				let playPauseBtn = document.createElement('div');
+		// 				playPauseBtn.className = 'play-pause-btn icon-play_circle_filled';
+		// 				playPauseBtn.setAttribute('data-fancybox-play-pouse', '');
 	
-						let progressBar = document.createElement('div');
-						progressBar.className = "video-progres-bar";
-						progressBar.setAttribute('data-fancybox-progress', '');
+		// 				let progressBar = document.createElement('div');
+		// 				progressBar.className = "video-progres-bar";
+		// 				progressBar.setAttribute('data-fancybox-progress', '');
 	
-						let thumb = document.createElement('div');
-						thumb.className = 'video-thumb';
+		// 				let thumb = document.createElement('div');
+		// 				thumb.className = 'video-thumb';
 	
-						progressBar.append(thumb);
-						videoControl.append(playPauseBtn);
-						videoControl.append(progressBar);
-						content.append(videoControl);
+		// 				progressBar.append(thumb);
+		// 				videoControl.append(playPauseBtn);
+		// 				videoControl.append(progressBar);
+		// 				content.append(videoControl);
 	
 	
-						playPauseBtn.addEventListener('click', () => {
-							togglePlayPause(video,playPauseBtn);
-						})
+		// 				playPauseBtn.addEventListener('click', () => {
+		// 					togglePlayPause(video,playPauseBtn);
+		// 				})
 	
-						video.ontimeupdate = () => {
-							let d = video.duration;
-							let c = video.currentTime;
+		// 				video.ontimeupdate = () => {
+		// 					let d = video.duration;
+		// 					let c = video.currentTime;
 						
-							thumb.style.left = ((100 * c) / d) + '%';
-						};
+		// 					thumb.style.left = ((100 * c) / d) + '%';
+		// 				};
 
-						video.addEventListener('ended', () => {
-							video.pause();
-							playPauseBtn.classList.remove('icon-pause_circle_filled');
-							playPauseBtn.classList.add('icon-play_circle_filled');
-						});
+		// 				video.addEventListener('ended', () => {
+		// 					video.pause();
+		// 					playPauseBtn.classList.remove('icon-pause_circle_filled');
+		// 					playPauseBtn.classList.add('icon-play_circle_filled');
+		// 				});
 
-						progressBar.addEventListener('click', (e) => {
-							let w = progressBar.offsetWidth;
-							let o = e.offsetX;
-							thumb.style.left = (100 * o) / w;
-							video.currentTime = video.duration * (o / w);
-						})
-					}
-				})
-			}
+		// 				progressBar.addEventListener('click', (e) => {
+		// 					let w = progressBar.offsetWidth;
+		// 					let o = e.offsetX;
+		// 					thumb.style.left = (100 * o) / w;
+		// 					video.currentTime = video.duration * (o / w);
+		// 				})
+		// 			}
+		// 		})
+		// 	}
 			
 
-		},
-		afterClose: function() {
-			let projects = document.querySelectorAll('.latest-projects__item');
-			if(projects.length) {
-				projects.forEach(project => {
-					let video = project.querySelector('.latest-projects__item-video');
-					video.muted = true;
-				})
-			}
+		// },
+		// afterClose: function() {
+		// 	let projects = document.querySelectorAll('.latest-projects__item');
+		// 	if(projects.length) {
+		// 		projects.forEach(project => {
+		// 			let video = project.querySelector('.latest-projects__item-video');
+		// 			video.muted = true;
+		// 		})
+		// 	}
 
-			let projectsCards = document.querySelectorAll('.projects-card');
-			if(projectsCards.length) {
-				projectsCards.forEach(item => {
-					let video = item.querySelector('video');
-					video.muted = true;
-				})
-			} 
-		}
+		// 	let projectsCards = document.querySelectorAll('.projects-card');
+		// 	if(projectsCards.length) {
+		// 		projectsCards.forEach(item => {
+		// 			let video = item.querySelector('video');
+		// 			video.muted = true;
+		// 		})
+		// 	} 
+		// }
 	});
 });
 
@@ -324,28 +324,63 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 
-var player;
+let player;
 function onYouTubeIframeAPIReady() {
 	window.addEventListener('load', () => {
 		let promoBg = document.querySelector('.promo-header__bg');
 		let videoId = promoBg.dataset.youtubeId;
+		if(videoId) {
 
-		player = new YT.Player(promoBg, {
-			height: 'auto',
-			width: 'auto',
-			videoId: videoId,
-			playerVars: {
-				autoplay:1, 
-				loop:1,
-				playlist: videoId,
-				controls: 0,
-			},
-			events: {
-				onReady: onPlayerReady, 
-			}
-		});
+			player = new YT.Player(promoBg, {
+				height: 'auto',
+				width: 'auto',
+				videoId: videoId,
+				playerVars: {
+					autoplay:1, 
+					loop:1,
+					playlist: videoId,
+					controls: 0,
+					enablejsapi: 1,
+				},
+				events: {
+					onReady: onPlayerReady, 
+				}
+			});
+	
+			console.dir(player)
+		}
 
-		console.dir(player)
+		let projectsItems = document.querySelectorAll('.latest-projects__item');
+        if (projectsItems.length) {
+			projectsItems.forEach(item => {
+				let player;
+				let videoWrap = item.querySelector('.latest-projects__item-video');
+                let videoId = videoWrap.dataset.youtubeId;
+                if (videoId) {
+					console.log('test lenth');
+					
+					player = new YT.Player(videoWrap, {
+						height: 'auto',
+						width: 'auto',
+						videoId: videoId,
+						playerVars: {
+							loop:1,
+							playlist: videoId,
+							controls: 0,
+						},
+						events: {
+							onReady: (e) => {
+								latesPlayersRady(e, item);
+							},
+						}
+					});
+
+
+                }
+
+            })
+        }
+
 
 		
 	})
@@ -357,8 +392,6 @@ function onPlayerReady(e) {
 	let promoHeader = document.querySelector('.promo-header');
 	if(promoHeader) {
 		promoHeader.addEventListener('click', () => {
-			console.log(e.target.isMuted());
-			
 			if (e.target.isMuted()) {
 				e.target.unMute();
 				promoHeader.classList.add('_is-sound');
@@ -370,4 +403,21 @@ function onPlayerReady(e) {
 	}
 
 	e.target.playVideo();
+}
+
+function latesPlayersRady(e, item) {
+	e.target.mute();
+
+	item.addEventListener('mouseenter', () => {
+		if (document.documentElement.clientWidth > 991) {
+			e.target.playVideo();
+		}
+	})
+
+	item.addEventListener('mouseleave', () => {
+		if (document.documentElement.clientWidth > 991) {
+			e.target.pauseVideo();
+		}
+	})
+	
 }
