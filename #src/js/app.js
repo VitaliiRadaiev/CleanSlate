@@ -159,27 +159,27 @@ $(document).ready(function () {
 		}
 	  }
 
-	let projectsCards = document.querySelectorAll('.projects-card');
-    if(projectsCards.length) {
-        projectsCards.forEach(item => {
-            let video = item.querySelector('video');
-            if(video) {
+	// let projectsCards = document.querySelectorAll('.projects-card');
+    // if(projectsCards.length) {
+    //     projectsCards.forEach(item => {
+    //         let video = item.querySelector('video');
+    //         if(video) {
 
-                item.addEventListener('mouseenter', () => {
-                    if(document.documentElement.clientWidth > 991) {
-                        video.play();
-                    }
-                })
+    //             item.addEventListener('mouseenter', () => {
+    //                 if(document.documentElement.clientWidth > 991) {
+    //                     video.play();
+    //                 }
+    //             })
 
-                item.addEventListener('mouseleave', () => {
-                    if(document.documentElement.clientWidth > 991) {
-                        video.pause();
-                    }
-                })
-            }
+    //             item.addEventListener('mouseleave', () => {
+    //                 if(document.documentElement.clientWidth > 991) {
+    //                     video.pause();
+    //                 }
+    //             })
+    //         }
 
-        })
-    } 
+    //     })
+    // } 
 
 
 
@@ -284,10 +284,6 @@ $(document).ready(function () {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`;
-	document.body.insertAdjacentHTML('afterbegin',loaderHtml);
-
-
 
 	let videos = [].slice.call(document.querySelectorAll("video.lazy"));
   
@@ -327,9 +323,9 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player;
 function onYouTubeIframeAPIReady() {
 	window.addEventListener('load', () => {
-		let promoBg = document.querySelector('.promo-header__bg');
+		let promoBg = document.querySelector('.promo-header__bg[data-youtube-id]');
+		if(promoBg) {
 		let videoId = promoBg.dataset.youtubeId;
-		if(videoId) {
 
 			player = new YT.Player(promoBg, {
 				height: 'auto',
@@ -346,40 +342,86 @@ function onYouTubeIframeAPIReady() {
 					onReady: onPlayerReady, 
 				}
 			});
-	
-			console.dir(player)
 		}
 
-		let projectsItems = document.querySelectorAll('.latest-projects__item');
-        if (projectsItems.length) {
-			projectsItems.forEach(item => {
-				let player;
-				let videoWrap = item.querySelector('.latest-projects__item-video');
-                let videoId = videoWrap.dataset.youtubeId;
-                if (videoId) {
-					console.log('test lenth');
-					
-					player = new YT.Player(videoWrap, {
-						height: 'auto',
-						width: 'auto',
-						videoId: videoId,
-						playerVars: {
-							loop:1,
-							playlist: videoId,
-							controls: 0,
-						},
-						events: {
-							onReady: (e) => {
-								latesPlayersRady(e, item);
-							},
-						}
-					});
 
+		let latestProjects = [].slice.call(document.querySelectorAll('.latest-projects__item'));
+		if(latestProjects.length) {
+			if ("IntersectionObserver" in window) {
+			  let videoObserver = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(item => {
+						if (item.isIntersecting) {
+							let player;
+							let wideoWrap = item.target.querySelector(".latest-projects__item-video[data-youtube-id]");
+							if(wideoWrap) {
+								let videoId = wideoWrap.dataset.youtubeId;
+								player = new YT.Player(wideoWrap, {
+									height: 'auto',
+									width: 'auto',
+									videoId: videoId,
+									playerVars: {
+										loop:1,
+										playlist: videoId,
+										controls: 0,
+										showinfo: 0,
+									},
+									events: {
+										onReady: (e) => {
+											latesPlayersRady(e, item.target);
+											//e.target.cueVideoById(videoId)
+										},
+									}
+								});
+							}	
+						}	
+					})
+				
+			  });
+		  
+			  latestProjects.forEach(function(video) {
+				videoObserver.observe(video);
+			  });
+			}
+		} 
 
-                }
-
-            })
-        }
+		let projectsCards = [].slice.call(document.querySelectorAll('.projects-card'));
+		if(projectsCards.length) {
+			if ("IntersectionObserver" in window) {
+			  let videoObserver = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(item => {
+						if (item.isIntersecting) {
+							let player;
+							let wideoWrap = item.target.querySelector(".projects-card__video[data-youtube-id]");
+							if(wideoWrap) {
+								let videoId = wideoWrap.dataset.youtubeId;
+								player = new YT.Player(wideoWrap, {
+									height: 'auto',
+									width: 'auto',
+									videoId: videoId,
+									playerVars: {
+										loop:1,
+										playlist: videoId,
+										controls: 0,
+										showinfo: 0,
+									},
+									events: {
+										onReady: (e) => {
+											latesPlayersRady(e, item.target);
+											//e.target.cueVideoById(videoId)
+										},
+									}
+								});
+							}	
+						}	
+					})
+				
+			  });
+		  
+			  projectsCards.forEach(function(video) {
+				videoObserver.observe(video);
+			  });
+			}
+		} 
 
 
 		
