@@ -284,32 +284,34 @@ $(document).ready(function () {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
+	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`;
+	document.body.insertAdjacentHTML('afterbegin',loaderHtml);
 
-	let videos = [].slice.call(document.querySelectorAll("video.lazy"));
+	// let videos = [].slice.call(document.querySelectorAll("video.lazy"));
   
-	if ("IntersectionObserver" in window) {
-	  let videoObserver = new IntersectionObserver(function(entries, observer) {
+	// if ("IntersectionObserver" in window) {
+	//   let videoObserver = new IntersectionObserver(function(entries, observer) {
 		  
-		entries.forEach(function(video) {
-		  if (video.isIntersecting) {
-			for (let source in video.target.children) {
-			  let videoSource = video.target.children[source];
-			  if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-				videoSource.src = videoSource.dataset.src;
-			  }
-			}
+	// 	entries.forEach(function(video) {
+	// 	  if (video.isIntersecting) {
+	// 		for (let source in video.target.children) {
+	// 		  let videoSource = video.target.children[source];
+	// 		  if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+	// 			videoSource.src = videoSource.dataset.src;
+	// 		  }
+	// 		}
   
-			video.target.load();
-			video.target.classList.remove("lazy");
-			videoObserver.unobserve(video.target);
-		  }
-		});
-	  });
+	// 		video.target.load();
+	// 		video.target.classList.remove("lazy");
+	// 		videoObserver.unobserve(video.target);
+	// 	  }
+	// 	});
+	//   });
   
-	  videos.forEach(function(video) {
-		videoObserver.observe(video);
-	  });
-	}
+	//   videos.forEach(function(video) {
+	// 	videoObserver.observe(video);
+	//   });
+	// }
 })
 
 
