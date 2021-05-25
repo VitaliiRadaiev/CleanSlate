@@ -301,18 +301,21 @@
 
 
 // ================== video ===================================================
-        promoHeader.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                promoHeader.classList.add('_is-sound');
-            } else {
-                video.muted = true;
-                promoHeader.classList.remove('_is-sound');
-            }
-        })
+
 
 
         if (video) {
+
+            promoHeader.addEventListener('click', () => {
+                if (video.muted) {
+                    video.muted = false;
+                    promoHeader.classList.add('_is-sound');
+                } else {
+                    video.muted = true;
+                    promoHeader.classList.remove('_is-sound');
+                }
+            })
+
             for (let source of video.children) {
                 source.src = source.dataset.src;
             }
@@ -332,33 +335,33 @@
                 }
             }, 500);
 
-            }
+        }
 // ================== and video ===================================        
     }
 
 
 
-        // let projectsItems = document.querySelectorAll('.latest-projects__item');
-        // if (projectsItems.length) {
-        //     projectsItems.forEach(item => {
-        //         let video = item.querySelector('video');
-        //         if (video) {
+        let projectsItems = document.querySelectorAll('.latest-projects__item');
+        if (projectsItems.length) {
+            projectsItems.forEach(item => {
+                let video = item.querySelector('video');
+                if (video) {
 
-        //             item.addEventListener('mouseenter', () => {
-        //                 if (document.documentElement.clientWidth > 991) {
-        //                     video.play();
-        //                 }
-        //             })
+                    item.addEventListener('mouseenter', () => {
+                        if (document.documentElement.clientWidth > 991) {
+                            video.play();
+                        }
+                    })
 
-        //             item.addEventListener('mouseleave', () => {
-        //                 if (document.documentElement.clientWidth > 991) {
-        //                     video.pause();
-        //                 }
-        //             })
-        //         }
+                    item.addEventListener('mouseleave', () => {
+                        if (document.documentElement.clientWidth > 991) {
+                            video.pause();
+                        }
+                    })
+                }
 
-        //     })
-        // }
+            })
+        }
     }
 
 

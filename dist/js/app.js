@@ -26,19 +26,19 @@ $(document).ready(function () {
 	});
 
 
-			// ==== ADD PADDING-TOP ================================
-			{
-				let wrapper = document.querySelector('.projects-page');
-				if (wrapper) {
-					let header = document.querySelector('.header');
-					if(header) {
-						let headerHeight = header.clientHeight;
-						wrapper.style.paddingTop = headerHeight + 'px';
-					}
-					
-				}
+	// ==== ADD PADDING-TOP ================================
+	{
+		let wrapper = document.querySelector('.projects-page');
+		if (wrapper) {
+			let header = document.querySelector('.header');
+			if (header) {
+				let headerHeight = header.clientHeight;
+				wrapper.style.paddingTop = headerHeight + 'px';
 			}
-			// ==== AND ADD PADDING-TOP ================================
+
+		}
+	}
+	// ==== AND ADD PADDING-TOP ================================
 
 	//SlideToggle
 let _slideUp = (target, duration = 500) => {
@@ -626,18 +626,21 @@ if(waypoints.length) {
 
 
 // ================== video ===================================================
-        promoHeader.addEventListener('click', () => {
-            if (video.muted) {
-                video.muted = false;
-                promoHeader.classList.add('_is-sound');
-            } else {
-                video.muted = true;
-                promoHeader.classList.remove('_is-sound');
-            }
-        })
+
 
 
         if (video) {
+
+            promoHeader.addEventListener('click', () => {
+                if (video.muted) {
+                    video.muted = false;
+                    promoHeader.classList.add('_is-sound');
+                } else {
+                    video.muted = true;
+                    promoHeader.classList.remove('_is-sound');
+                }
+            })
+
             for (let source of video.children) {
                 source.src = source.dataset.src;
             }
@@ -657,33 +660,33 @@ if(waypoints.length) {
                 }
             }, 500);
 
-            }
+        }
 // ================== and video ===================================        
     }
 
 
 
-        // let projectsItems = document.querySelectorAll('.latest-projects__item');
-        // if (projectsItems.length) {
-        //     projectsItems.forEach(item => {
-        //         let video = item.querySelector('video');
-        //         if (video) {
+        let projectsItems = document.querySelectorAll('.latest-projects__item');
+        if (projectsItems.length) {
+            projectsItems.forEach(item => {
+                let video = item.querySelector('video');
+                if (video) {
 
-        //             item.addEventListener('mouseenter', () => {
-        //                 if (document.documentElement.clientWidth > 991) {
-        //                     video.play();
-        //                 }
-        //             })
+                    item.addEventListener('mouseenter', () => {
+                        if (document.documentElement.clientWidth > 991) {
+                            video.play();
+                        }
+                    })
 
-        //             item.addEventListener('mouseleave', () => {
-        //                 if (document.documentElement.clientWidth > 991) {
-        //                     video.pause();
-        //                 }
-        //             })
-        //         }
+                    item.addEventListener('mouseleave', () => {
+                        if (document.documentElement.clientWidth > 991) {
+                            video.pause();
+                        }
+                    })
+                }
 
-        //     })
-        // }
+            })
+        }
     }
 
 
@@ -733,42 +736,42 @@ if(waypoints.length) {
     };
 
 	let projectNav = document.querySelector('.projects__nav');
-	if(projectNav) {
+	if (projectNav) {
 		let filterItems = projectNav.querySelectorAll('.projects__nav-link');
-		let iso = $('.projects__list').isotope( {
+		let iso = $('.projects__list').isotope({
 			// options
 			itemSelector: 'li',
 			layoutMode: 'fitRows',
 		});
 
 
-		if(filterItems.length) {
+		if (filterItems.length) {
 			let arr = [];
-            let oldValue = 0;
+			let oldValue = 0;
 
 
 			filterItems.forEach((item, index) => {
-				let	id = item.dataset.id;
-				
+				let id = item.dataset.id;
+
 				arr.push(item.getBoundingClientRect().left - 15);
 
 				item.addEventListener('click', (e) => {
 					e.preventDefault();
 
 					let left = arr[index] - (document.documentElement.clientWidth / 2) + ((item.getBoundingClientRect().width + 30) / 2)
-                    moveTo(oldValue, left, projectNav);
-                    oldValue = left < 0 ? 0 : left;
+					moveTo(oldValue, left, projectNav);
+					oldValue = left < 0 ? 0 : left;
 
 					item.classList.add('active');
 					filterItems.forEach(i => {
-						if(i == item) {
+						if (i == item) {
 							return;
 						}
 
 						i.classList.remove('active');
 					})
 
-					if(!id) {
+					if (!id) {
 						iso.isotope({ filter: '*' })
 					} else {
 						iso.isotope({ filter: `li[data-id="${id}"]` })
@@ -782,31 +785,31 @@ if(waypoints.length) {
 			});
 
 			window.addEventListener('resize', () => {
-                arr = [];
-                projectNav.scrollLeft = 0;
+				arr = [];
+				projectNav.scrollLeft = 0;
 
-                filterItems.forEach(i => {
-                    arr.push(i.getBoundingClientRect().left - 15);
-                })
-            })
+				filterItems.forEach(i => {
+					arr.push(i.getBoundingClientRect().left - 15);
+				})
+			})
 
 		}
 
 		async function moveTo(from, to, el = false) {
-			if(!el) {
+			if (!el) {
 				console.log('ele is not correct');
 				return
 			}
-	
+
 			let count = from;
-	
+
 			let promise = await new Promise((resolve, rehect) => {
-	
-				if(from <= to) {
-					let time = (1000 / ((to - from) / 1000 )) / 1000;
-					
+
+				if (from <= to) {
+					let time = (1000 / ((to - from) / 1000)) / 1000;
+
 					let id = setInterval(() => {
-						if(count >= to) {
+						if (count >= to) {
 							clearInterval(id);
 							resolve();
 							return
@@ -815,9 +818,9 @@ if(waypoints.length) {
 						count = count + 2;
 					}, time < 0 ? 1 : time)
 				} else if (from >= to) {
-					let time = (1000 / ((from - to) / 1000 )) / 1000;
+					let time = (1000 / ((from - to) / 1000)) / 1000;
 					let id = setInterval(() => {
-						if(count <= to) {
+						if (count <= to) {
 							clearInterval(id);
 							resolve();
 							return
@@ -827,50 +830,50 @@ if(waypoints.length) {
 					}, time < 0 ? 1 : time)
 				}
 			})
-	
+
 		}
 	}
 
 	let projectList = document.querySelector('.projects__list');
-	  if(projectList) {
-		for(let i of projectList.children) {
+	if (projectList) {
+		for (let i of projectList.children) {
 			let link = i.querySelector('a');
-			if(link) {
+			if (link) {
 				let id = link;
-				if(id) {
+				if (id) {
 					i.setAttribute('data-id', id);
 				}
 			}
 
 		}
-	  }
+	}
 
-	// let projectsCards = document.querySelectorAll('.projects-card');
-    // if(projectsCards.length) {
-    //     projectsCards.forEach(item => {
-    //         let video = item.querySelector('video');
-    //         if(video) {
+	let projectsCards = document.querySelectorAll('.projects-card');
+	if(projectsCards.length) {
+	    projectsCards.forEach(item => {
+	        let video = item.querySelector('video');
+	        if(video) {
 
-    //             item.addEventListener('mouseenter', () => {
-    //                 if(document.documentElement.clientWidth > 991) {
-    //                     video.play();
-    //                 }
-    //             })
+	            item.addEventListener('mouseenter', () => {
+	                if(document.documentElement.clientWidth > 991) {
+	                    video.play();
+	                }
+	            })
 
-    //             item.addEventListener('mouseleave', () => {
-    //                 if(document.documentElement.clientWidth > 991) {
-    //                     video.pause();
-    //                 }
-    //             })
-    //         }
+	            item.addEventListener('mouseleave', () => {
+	                if(document.documentElement.clientWidth > 991) {
+	                    video.pause();
+	                }
+	            })
+	        }
 
-    //     })
-    // } 
+	    })
+	} 
 
 
 
-	function togglePlayPause(video,btn) {
-		if(video.paused) {
+	function togglePlayPause(video, btn) {
+		if (video.paused) {
 			video.play();
 			btn.classList.remove('icon-play_circle_filled');
 			btn.classList.add('icon-pause_circle_filled');
@@ -884,120 +887,223 @@ if(waypoints.length) {
 
 
 	$("[data-fancybox]").fancybox({
-		youtube : {
+		video: {
+			autoStart: false,
+		},
+		youtube: {
 			autoplay: 0,
 		},
+		vimeo: {
+			autoplay: false,
+		},
 		animationDuration: 600,
-		// afterShow   : function( instance, slide ) {
-		// 	let slides = document.querySelectorAll('.fancybox-stage .fancybox-slide');
-		// 	if(slides.length) {
+		afterShow: function (instance, slide) {
+			let slides = document.querySelectorAll('.fancybox-stage .fancybox-slide');
+			if (slides.length) {
 
-		// 		slides.forEach(slide => {
-		// 			let video = slide.querySelector('video');
-		// 			let content = slide.querySelector('.fancybox-content');
+				slides.forEach(slide => {
+					let video = slide.querySelector('video');
+					if (video) {
+						let content = slide.querySelector('.fancybox-content');
 
-		// 			video.muted = false;
-					
+						video.muted = false;
 
-		// 			if(!content.querySelector('.video-control')) {
-		// 				let videoControl = document.createElement('div');
-		// 				videoControl.className = 'video-control';
-	
-		// 				let playPauseBtn = document.createElement('div');
-		// 				playPauseBtn.className = 'play-pause-btn icon-play_circle_filled';
-		// 				playPauseBtn.setAttribute('data-fancybox-play-pouse', '');
-	
-		// 				let progressBar = document.createElement('div');
-		// 				progressBar.className = "video-progres-bar";
-		// 				progressBar.setAttribute('data-fancybox-progress', '');
-	
-		// 				let thumb = document.createElement('div');
-		// 				thumb.className = 'video-thumb';
-	
-		// 				progressBar.append(thumb);
-		// 				videoControl.append(playPauseBtn);
-		// 				videoControl.append(progressBar);
-		// 				content.append(videoControl);
-	
-	
-		// 				playPauseBtn.addEventListener('click', () => {
-		// 					togglePlayPause(video,playPauseBtn);
-		// 				})
-	
-		// 				video.ontimeupdate = () => {
-		// 					let d = video.duration;
-		// 					let c = video.currentTime;
-						
-		// 					thumb.style.left = ((100 * c) / d) + '%';
-		// 				};
 
-		// 				video.addEventListener('ended', () => {
-		// 					video.pause();
-		// 					playPauseBtn.classList.remove('icon-pause_circle_filled');
-		// 					playPauseBtn.classList.add('icon-play_circle_filled');
-		// 				});
+						if (!content.querySelector('.video-control')) {
+							let videoControl = document.createElement('div');
+							videoControl.className = 'video-control';
 
-		// 				progressBar.addEventListener('click', (e) => {
-		// 					let w = progressBar.offsetWidth;
-		// 					let o = e.offsetX;
-		// 					thumb.style.left = (100 * o) / w;
-		// 					video.currentTime = video.duration * (o / w);
-		// 				})
-		// 			}
-		// 		})
-		// 	}
-			
+							let playPauseBtn = document.createElement('div');
+							playPauseBtn.className = 'play-pause-btn icon-play_circle_filled';
+							playPauseBtn.setAttribute('data-fancybox-play-pouse', '');
 
-		// },
-		// afterClose: function() {
-		// 	let projects = document.querySelectorAll('.latest-projects__item');
-		// 	if(projects.length) {
-		// 		projects.forEach(project => {
-		// 			let video = project.querySelector('.latest-projects__item-video');
-		// 			video.muted = true;
-		// 		})
-		// 	}
+							let progressBar = document.createElement('div');
+							progressBar.className = "video-progres-bar";
+							progressBar.setAttribute('data-fancybox-progress', '');
 
-		// 	let projectsCards = document.querySelectorAll('.projects-card');
-		// 	if(projectsCards.length) {
-		// 		projectsCards.forEach(item => {
-		// 			let video = item.querySelector('video');
-		// 			video.muted = true;
-		// 		})
-		// 	} 
-		// }
+							let thumb = document.createElement('div');
+							thumb.className = 'video-thumb';
+
+							progressBar.append(thumb);
+							videoControl.append(playPauseBtn);
+							videoControl.append(progressBar);
+							content.append(videoControl);
+
+
+							playPauseBtn.addEventListener('click', () => {
+								togglePlayPause(video, playPauseBtn);
+							})
+
+							video.ontimeupdate = () => {
+								let d = video.duration;
+								let c = video.currentTime;
+
+								thumb.style.left = ((100 * c) / d) + '%';
+							};
+
+							video.addEventListener('ended', () => {
+								video.pause();
+								playPauseBtn.classList.remove('icon-pause_circle_filled');
+								playPauseBtn.classList.add('icon-play_circle_filled');
+							});
+
+							progressBar.addEventListener('click', (e) => {
+								let w = progressBar.offsetWidth;
+								let o = e.offsetX;
+								thumb.style.left = (100 * o) / w;
+								video.currentTime = video.duration * (o / w);
+							})
+						}
+					}
+				})
+			}
+
+
+		},
+		afterClose: function () {
+			let projects = document.querySelectorAll('.latest-projects__item');
+			if (projects.length) {
+				projects.forEach(project => {
+					let video = project.querySelector('.latest-projects__item-video');
+					if (video) {
+						video.muted = true;
+					}
+				})
+			}
+
+			let projectsCards = document.querySelectorAll('.projects-card');
+			if (projectsCards.length) {
+				projectsCards.forEach(item => {
+					let video = item.querySelector('video');
+					if (video) {
+						video.muted = true;
+					}
+				})
+			}
+		}
 	});
 });
 
 window.addEventListener('DOMContentLoaded', () => {
 	const loaderHtml = `<div class="loader-layer"><div class="loader-layer__line"><span></span></div></div>`;
-	document.body.insertAdjacentHTML('afterbegin',loaderHtml);
+	document.body.insertAdjacentHTML('afterbegin', loaderHtml);
 
-	// let videos = [].slice.call(document.querySelectorAll("video.lazy"));
-  
-	// if ("IntersectionObserver" in window) {
-	//   let videoObserver = new IntersectionObserver(function(entries, observer) {
-		  
-	// 	entries.forEach(function(video) {
-	// 	  if (video.isIntersecting) {
-	// 		for (let source in video.target.children) {
-	// 		  let videoSource = video.target.children[source];
-	// 		  if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
-	// 			videoSource.src = videoSource.dataset.src;
-	// 		  }
-	// 		}
-  
-	// 		video.target.load();
-	// 		video.target.classList.remove("lazy");
-	// 		videoObserver.unobserve(video.target);
-	// 	  }
-	// 	});
-	//   });
-  
-	//   videos.forEach(function(video) {
-	// 	videoObserver.observe(video);
-	//   });
-	// }
+	let videos = [].slice.call(document.querySelectorAll("video.lazy"));
+	let latestProjectsItems = [].slice.call(document.querySelectorAll('.latest-projects__item'));
+	let projectItems = [].slice.call(document.querySelectorAll('.projects-card'));
+
+	if ("IntersectionObserver" in window) {
+		let videoObserver = new IntersectionObserver(function (entries, observer) {
+
+			entries.forEach(function (video) {
+				if (video.isIntersecting) {
+					for (let source in video.target.children) {
+						let videoSource = video.target.children[source];
+						if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+							videoSource.src = videoSource.dataset.src;
+						}
+					}
+
+					video.target.load();
+					video.target.classList.remove("lazy");
+					videoObserver.unobserve(video.target);
+				}
+			});
+		});
+
+		videos.forEach(function (video) {
+			videoObserver.observe(video);
+		});
+
+
+		let vimeoVideoObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(async function (item) {
+				if (item.isIntersecting) {
+					let player;
+					let vimeoVideo = item.target.querySelector('.latest-projects__item-video[data-cs-vimeo-id]');
+					if (vimeoVideo) {
+						if (!item.target.classList.contains('_video-loaded')) {
+							player = await new Vimeo.Player(vimeoVideo, {
+								id: vimeoVideo.dataset.csVimeoId,
+								autoplay: false,
+								controls: false,
+								muted: true,
+								loop: true,
+								width: 'auto',
+								height: 'auto'
+							})
+							item.target.classList.add('_video-loaded');
+
+							item.target.addEventListener('mouseenter', () => {
+								if(document.documentElement.clientWidth > 991) {
+									player.play().then(function () {
+										// the video was played
+									}).catch((error) => console.log(error.name))
+								}
+							})
+							item.target.addEventListener('mouseleave', () => {
+								if(document.documentElement.clientWidth > 991) {
+									player.pause().then(function () {
+										// the video was played
+									}).catch((error) => console.log(error.name))
+								}
+							})
+						}
+					}
+				}
+			})
+		})
+
+		latestProjectsItems.forEach(function (video) {
+			vimeoVideoObserver.observe(video);
+		});
+
+
+		let vimeoVideoObserver2 = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(async function (item) {
+				if (item.isIntersecting) {
+					let player;
+					let vimeoVideo = item.target.querySelector('.projects-card__video[data-cs-vimeo-id]');
+					if (vimeoVideo) {
+						if (!item.target.classList.contains('_video-loaded')) {
+							player = await new Vimeo.Player(vimeoVideo, {
+								id: vimeoVideo.dataset.csVimeoId,
+								autoplay: false,
+								controls: false,
+								muted: true,
+								loop: true,
+								width: 'auto',
+								height: 'auto'
+							})
+							item.target.classList.add('_video-loaded');
+
+							item.target.addEventListener('mouseenter', () => {
+								if(document.documentElement.clientWidth > 991) {
+									player.play().then(function () {
+										// the video was played
+									}).catch((error) => console.log(error.name))
+								}
+							})
+							item.target.addEventListener('mouseleave', () => {
+								if(document.documentElement.clientWidth > 991) {
+									player.pause().then(function () {
+										// the video was played
+									}).catch((error) => console.log(error.name))
+								}
+							})
+						}
+					}
+				}
+			})
+		})
+
+		projectItems.forEach(function (video) {
+			vimeoVideoObserver2.observe(video);
+		});
+	}
+
+
+
 })
 
 
@@ -1012,43 +1118,43 @@ let player;
 function onYouTubeIframeAPIReady() {
 	window.addEventListener('load', () => {
 		let promoBg = document.querySelector('.promo-header__bg[data-youtube-id]');
-		if(promoBg) {
-		let videoId = promoBg.dataset.youtubeId;
+		if (promoBg) {
+			let videoId = promoBg.dataset.youtubeId;
 
 			player = new YT.Player(promoBg, {
 				height: 'auto',
 				width: 'auto',
 				videoId: videoId,
 				playerVars: {
-					autoplay:1, 
-					loop:1,
+					autoplay: 1,
+					loop: 1,
 					playlist: videoId,
 					controls: 0,
 					enablejsapi: 1,
 				},
 				events: {
-					onReady: onPlayerReady, 
+					onReady: onPlayerReady,
 				}
 			});
 		}
 
 
 		let latestProjects = [].slice.call(document.querySelectorAll('.latest-projects__item'));
-		if(latestProjects.length) {
+		if (latestProjects.length) {
 			if ("IntersectionObserver" in window) {
-			  let videoObserver = new IntersectionObserver(function(entries, observer) {
+				let videoObserver = new IntersectionObserver(function (entries, observer) {
 					entries.forEach(item => {
 						if (item.isIntersecting) {
 							let player;
 							let wideoWrap = item.target.querySelector(".latest-projects__item-video[data-youtube-id]");
-							if(wideoWrap) {
+							if (wideoWrap) {
 								let videoId = wideoWrap.dataset.youtubeId;
 								player = new YT.Player(wideoWrap, {
 									height: 'auto',
 									width: 'auto',
 									videoId: videoId,
 									playerVars: {
-										loop:1,
+										loop: 1,
 										playlist: videoId,
 										controls: 0,
 										showinfo: 0,
@@ -1060,34 +1166,34 @@ function onYouTubeIframeAPIReady() {
 										},
 									}
 								});
-							}	
-						}	
+							}
+						}
 					})
-				
-			  });
-		  
-			  latestProjects.forEach(function(video) {
-				videoObserver.observe(video);
-			  });
+
+				});
+
+				latestProjects.forEach(function (video) {
+					videoObserver.observe(video);
+				});
 			}
-		} 
+		}
 
 		let projectsCards = [].slice.call(document.querySelectorAll('.projects-card'));
-		if(projectsCards.length) {
+		if (projectsCards.length) {
 			if ("IntersectionObserver" in window) {
-			  let videoObserver = new IntersectionObserver(function(entries, observer) {
+				let videoObserver = new IntersectionObserver(function (entries, observer) {
 					entries.forEach(item => {
 						if (item.isIntersecting) {
 							let player;
 							let wideoWrap = item.target.querySelector(".projects-card__video[data-youtube-id]");
-							if(wideoWrap) {
+							if (wideoWrap) {
 								let videoId = wideoWrap.dataset.youtubeId;
 								player = new YT.Player(wideoWrap, {
 									height: 'auto',
 									width: 'auto',
 									videoId: videoId,
 									playerVars: {
-										loop:1,
+										loop: 1,
 										playlist: videoId,
 										controls: 0,
 										showinfo: 0,
@@ -1099,28 +1205,28 @@ function onYouTubeIframeAPIReady() {
 										},
 									}
 								});
-							}	
-						}	
+							}
+						}
 					})
-				
-			  });
-		  
-			  projectsCards.forEach(function(video) {
-				videoObserver.observe(video);
-			  });
+
+				});
+
+				projectsCards.forEach(function (video) {
+					videoObserver.observe(video);
+				});
 			}
-		} 
+		}
 
 
-		
+
 	})
 }
 
 function onPlayerReady(e) {
 	e.target.mute();
-	
+
 	let promoHeader = document.querySelector('.promo-header');
-	if(promoHeader) {
+	if (promoHeader) {
 		promoHeader.addEventListener('click', () => {
 			if (e.target.isMuted()) {
 				e.target.unMute();
@@ -1149,5 +1255,41 @@ function latesPlayersRady(e, item) {
 			e.target.pauseVideo();
 		}
 	})
-	
+
 }
+
+
+
+
+
+// === vimeo handler =============================
+window.addEventListener('load', async () => {
+	let promoHeaderBg = document.querySelector('.promo-header__bg[data-cs-vimeo-id]');
+	if (promoHeaderBg) {
+		let player = new Vimeo.Player(promoHeaderBg, {
+			id: promoHeaderBg.dataset.csVimeoId,
+			autoplay: true,
+			controls: false,
+			muted: true,
+			loop: true,
+			width: 'auto',
+			height: 'auto'
+		})
+
+		let promoHeader = document.querySelector('.promo-header');
+		if (promoHeader) {
+			promoHeader.addEventListener('click', async () => {
+				let muted = await player.getMuted()
+
+				if (muted) {
+					player.setMuted(false);
+					promoHeader.classList.add('_is-sound');
+				} else {
+					player.setMuted(true);
+					promoHeader.classList.remove('_is-sound');
+				}
+			})
+		}
+	}
+})
+// === and vimeo handler =============================

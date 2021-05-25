@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-	@@include('_head.html',{
-	"title": "New Project"
+@@include('_head.html',{
+"title": "New Project"
+})
+
+<body>
+	<!-- == TOP LINE ================== -->
+	@@include('common/header/_header.html',{
+	"_mix-mode": '',
 	})
-	<body>
-		<!-- == TOP LINE ================== -->
-		@@include('common/header/_header.html',{
-			"_mix-mode": '',
-		})
-		<!-- == // TOP LINE ================== -->
+	<!-- == // TOP LINE ================== -->
 
-		<!-- == PAGE CONTENT ================== -->
-		<main class="page home _bg-light"> 
-			<section class="promo-header">
-				<div class="promo-header__bg ibg" data-youtube-id="xlCnQXpdci4">
-					<!-- data-youtube-id="xlCnQXpdci4" -->
-					
-					<!-- <video class="promo-header__video" controlslist="nodownload" crossorigin="anonymous" loop="" preload="false" muted="true" poster="img/photo/Main_Video-poster.jpg">
-						<source media="(max-width:992px)" data-src="img/main-video-480.webm" type="video/webm">
-						<source data-src="img/img/main-video-hd.webm" type="video/mp4">
-						<source media="(max-width:992px)" data-src="img/main-video-480.mp4" type="video/mp4">
-						<source data-src="img/main-video-hd.mp4" type="video/mp4">
-					</video> -->
-				</div>
-				<div class="promo-header__body container">
-					<h1 class="promo-header__title _anim-items _anim-no-hide">
-						creating beautiful visuals 
-						and Focusing on details
-					</h1>
-				</div>
-				<div class="promo-header__sound-play">
-					<img class="img-svg text" src="img/icons/play.svg" alt="">
-					<img class="img-svg graf" src="img/icons/play2.svg" alt="">
-					<img class="img-svg sound" src="img/icons/sound.svg" alt="">
-				</div>
-				<div class="promo-header__sound-muted"></div>
-			</section>
+	<!-- == PAGE CONTENT ================== -->
+	<main class="page home _bg-light">
 
-			<!-- <section class="text-block waypoint">
+		<section class="promo-header">
+			
+			<div class="promo-header__bg ibg">
+				<video class="promo-header__video" controlslist="nodownload" crossorigin="anonymous" loop=""
+					preload="false" muted="true" poster="img/photo/Main_Video-poster.jpg">
+					<source media="(max-width:992px)" data-src="img/main-video-480.mp4" type="video/mp4">
+					<source data-src="img/main-video-hd.mp4" type="video/mp4">
+				</video> 
+			</div>
+			<!-- <div class="promo-header__bg ibg" data-youtube-id="xlCnQXpdci4"></div> -->
+			<!-- <div class="promo-header__bg ibg" data-cs-vimeo-id="554638450"></div> -->
+			<div class="promo-header__body container">
+				<h1 class="promo-header__title _anim-items _anim-no-hide">
+					creating beautiful visuals
+					and Focusing on details
+				</h1>
+			</div>
+			<div class="promo-header__sound-play">
+				<img class="img-svg text" src="img/icons/play.svg" alt="">
+				<img class="img-svg graf" src="img/icons/play2.svg" alt="">
+				<img class="img-svg sound" src="img/icons/sound.svg" alt="">
+			</div>
+			<div class="promo-header__sound-muted"></div>
+		</section>
+
+		<!-- <section class="text-block waypoint">
 				<div class="container">
 					<p>
 						CLEAN SLATE looks at each project as a chance to nurture great ideas from concept to completion. We understand that each project is different.
@@ -45,180 +47,202 @@
 				</div>
 			</section> -->
 
-			<section id="projects" class="latest-projects">
-				<div class="container">
-					<h2 class="latest-projects__title title-2">Our Latest projects</h2>
-					<div class="latest-projects__body"> 
-						<div class="latest-projects__row-1">
-							<div class="latest-projects__column">
-								<a data-fancybox='gallery' href="https://youtu.be/xlCnQXpdci4" class="latest-projects__item _bg-darken">
-									<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
-									<!-- <video id="video-1" class="latest-projects__item-video lazy" crossorigin="anonymous" loop  muted="none">
+		<section id="projects" class="latest-projects">
+			<div class="container">
+				<h2 class="latest-projects__title title-2">Our Latest projects</h2>
+				<div class="latest-projects__body">
+					<div class="latest-projects__row-1">
+						<div class="latest-projects__column">
+							<a data-fancybox='gallery' href="#video-1"
+								class="latest-projects__item _bg-darken">
+								<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
+								 <video id="video-1" class="latest-projects__item-video lazy" crossorigin="anonymous" loop  muted="none">
 										<source data-src="img/shrek.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-									</video> -->
-									<div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div>
-									<div class="latest-projects__item-body">
-										<div class="latest-projects__item-title">Rotem - big star</div>
-									</div>
-								</a>
-							</div>
-							<div class="latest-projects__column">
-								<a data-fancybox='gallery' href="https://youtu.be/xlCnQXpdci4" class="latest-projects__item _bg-darken">
-									<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
-									<!-- <video id="video-2" class="latest-projects__item-video lazy" crossorigin="anonymous" loop preload="none" muted="true">
+								</video> 
+								<div class="latest-projects__item-body">
+									<div class="latest-projects__item-title">Html Video</div>
+								</div>
+							</a>
+						</div>
+						<div class="latest-projects__column">
+							<a data-fancybox='gallery' href="https://youtu.be/xlCnQXpdci4"
+								class="latest-projects__item _bg-darken">
+								<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
+								<div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div>
+								<div class="latest-projects__item-body">
+									<div class="latest-projects__item-title">Youtube Video</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="latest-projects__row-2">
+						<div class="latest-projects__column">
+							<a data-fancybox='gallery' href="https://vimeo.com/554638450"
+								class="latest-projects__item _bg-darken">
+								<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
+								<div class="latest-projects__item-video" data-cs-vimeo-id="554638450"></div>
+								<div class="latest-projects__item-body">
+									<div class="latest-projects__item-title">Vimeo Video</div>
+								</div>
+							</a>
+						</div>
+						<div class="latest-projects__column">
+							<a data-fancybox='gallery' href="https://vimeo.com/554703818"
+								class="latest-projects__item _bg-darken">
+								<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
+								<!-- <video id="video-4" class="latest-projects__item-video lazy" crossorigin="anonymous" loop preload="none" muted="true">
 										<source data-src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
 									</video> -->
-									<div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div>
-									<div class="latest-projects__item-body">
-										<div class="latest-projects__item-title">Rotem - big star</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="latest-projects__row-2">
-							<div class="latest-projects__column">
-								<a data-fancybox='gallery' href="https://youtu.be/xlCnQXpdci4" class="latest-projects__item _bg-darken">
-									<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
-									<!-- <video id="video-3" class="latest-projects__item-video lazy" crossorigin="anonymous" loop preload="none" muted="true">
-										<source data-src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-									</video> -->
-									<div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div>
-									<div class="latest-projects__item-body">
-										<div class="latest-projects__item-title">Rotem - big star</div>
-									</div>
-								</a>
-							</div>
-							<div class="latest-projects__column">
-								<a data-fancybox='gallery' href="https://youtu.be/xlCnQXpdci4" class="latest-projects__item _bg-darken">
-									<img src="img/photo/poster02.jpg" alt="" class="latest-projects__item-poster">
-									<!-- <video id="video-4" class="latest-projects__item-video lazy" crossorigin="anonymous" loop preload="none" muted="true">
-										<source data-src="img/videoForTest.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-									</video> -->
-									<div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div>
-									<div class="latest-projects__item-body">
-										<div class="latest-projects__item-title">Rotem - big star</div>
-									</div>
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="latest-projects__bottom">
-						<a href="projects.html" class="btn-default">more projects</a>
-					</div>
-				</div>
-			</section>
-
-			<section id="about" class="about _bg-darken">
-				<div class="about__body container">
-					<div class="about__img ibg">
-						<img src="img/photo/Edan.png" alt="">
-					</div>
-					<div class="about__text text-content">
-						<h2>
-							ABOUT CLEAN SLATE
-						</h2>
-						<p>
-							Clean Slate Production is a professional video production company based in London, founded by Edan Schiller. 
-						</p>
-						<p>
-							At Clean Slate, we work with brands, independent businesses, corporates and charities offering creative, production and post production services. With over 12 years in the field our services include marketing videos, fashion films, educational films, documentaries, music videos, training videos and more 
-						</p>
-						<p>
-							CLEAN SLATE looks at each project as a chance to nurture great ideas from concept to completion. We understand that each project is different, and as such, a team of professionals will be hired in accordance with each project, to bring any kind of video production to perfection.
-						</p>
-						<hr>
-						<h4>
-							EDAN SCHILLER
-						</h4>
-						<p>
-							Edan Schiller, an experienced director, editor and cinematographer, created CLEAN SLATE in order to give his clients a service that includes all stages of production in a cost effective way from concept development, to production and editing.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="testimonials">
-				<div class="testimonials__body container">
-					<div class="testimonials__column">
-						<h2 class="testimonials__title title-2">
-							What others have to say about us
-						</h2>
-						<div class="testimonials-slider swiper-container">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide">
-									<div class="testimonials-slider__photo ibg">
-										<img src="img/photo/avatar.png" alt="">
-									</div>
-									<div class="testimonials-slider__text-wrap text-content">
-										At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-										<hr>
-										<div class="testimonials-slider__author">John Doe</div>
-										<div class="testimonials-slider__position">CEO Abc Company</div>
-									</div>
+								<!-- <div class="latest-projects__item-video" data-youtube-id="xlCnQXpdci4"></div> -->
+								<div class="latest-projects__item-video" data-cs-vimeo-id="554703818"></div>
+								<div class="latest-projects__item-body">
+									<div class="latest-projects__item-title">Rotem - big star</div>
 								</div>
-								<div class="swiper-slide">
-									<div class="testimonials-slider__photo ibg">
-										<img src="img/photo/avatar.png" alt="">
-									</div>
-									<div class="testimonials-slider__text-wrap text-content">
-										At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-										<hr>
-										<div class="testimonials-slider__author">John Doe</div>
-										<div class="testimonials-slider__position">CEO Abc Company</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="testimonials-slider__photo ibg">
-										<img src="img/photo/avatar.png" alt="">
-									</div>
-									<div class="testimonials-slider__text-wrap text-content">
-										At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-										<hr>
-										<div class="testimonials-slider__author">John Doe</div>
-										<div class="testimonials-slider__position">CEO Abc Company</div>
-									</div>
-								</div>
-								<div class="swiper-slide">
-									<div class="testimonials-slider__photo ibg">
-										<img src="img/photo/avatar.png" alt="">
-									</div>
-									<div class="testimonials-slider__text-wrap text-content">
-										At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
-										<hr>
-										<div class="testimonials-slider__author">John Doe</div>
-										<div class="testimonials-slider__position">CEO Abc Company</div>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-pagination"></div>
-						</div>
-					</div>
-					<div class="testimonials__column">
-						<div class="testimonials__img ibg _bg-darken">
-							<img src="img/photo/testimonials.jpg" alt="">
+							</a>
 						</div>
 					</div>
 				</div>
-			</section> 
-
-			<section class="advantages _bg-darken"> 
-				<div class="advantages__bg ibg">
-					<img src="img/photo/img.jpg" alt="">
+				<div class="latest-projects__bottom">
+					<a href="projects.html" class="btn-default">more projects</a>
 				</div>
-				<div class="advantages__body container">
-					<div class="advantages__title">
-						Creativity. <br> Professionalism. <br> High standards.
+			</div>
+		</section>
+
+		<section id="about" class="about _bg-darken">
+			<div class="about__body container">
+				<div class="about__img ibg">
+					<img src="img/photo/Edan.png" alt="">
+				</div>
+				<div class="about__text text-content">
+					<h2>
+						ABOUT CLEAN SLATE
+					</h2>
+					<p>
+						Clean Slate Production is a professional video production company based in London, founded by
+						Edan Schiller.
+					</p>
+					<p>
+						At Clean Slate, we work with brands, independent businesses, corporates and charities offering
+						creative, production and post production services. With over 12 years in the field our services
+						include marketing videos, fashion films, educational films, documentaries, music videos,
+						training videos and more
+					</p>
+					<p>
+						CLEAN SLATE looks at each project as a chance to nurture great ideas from concept to completion.
+						We understand that each project is different, and as such, a team of professionals will be hired
+						in accordance with each project, to bring any kind of video production to perfection.
+					</p>
+					<hr>
+					<h4>
+						EDAN SCHILLER
+					</h4>
+					<p>
+						Edan Schiller, an experienced director, editor and cinematographer, created CLEAN SLATE in order
+						to give his clients a service that includes all stages of production in a cost effective way
+						from concept development, to production and editing.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="testimonials">
+			<div class="testimonials__body container">
+				<div class="testimonials__column">
+					<h2 class="testimonials__title title-2">
+						What others have to say about us
+					</h2>
+					<div class="testimonials-slider swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="testimonials-slider__photo ibg">
+									<img src="img/photo/avatar.png" alt="">
+								</div>
+								<div class="testimonials-slider__text-wrap text-content">
+									At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+									officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
+									rerum facilis est et expedita distinctio.
+									<hr>
+									<div class="testimonials-slider__author">John Doe</div>
+									<div class="testimonials-slider__position">CEO Abc Company</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="testimonials-slider__photo ibg">
+									<img src="img/photo/avatar.png" alt="">
+								</div>
+								<div class="testimonials-slider__text-wrap text-content">
+									At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+									officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
+									rerum facilis est et expedita distinctio.
+									<hr>
+									<div class="testimonials-slider__author">John Doe</div>
+									<div class="testimonials-slider__position">CEO Abc Company</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="testimonials-slider__photo ibg">
+									<img src="img/photo/avatar.png" alt="">
+								</div>
+								<div class="testimonials-slider__text-wrap text-content">
+									At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+									officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
+									rerum facilis est et expedita distinctio.
+									<hr>
+									<div class="testimonials-slider__author">John Doe</div>
+									<div class="testimonials-slider__position">CEO Abc Company</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="testimonials-slider__photo ibg">
+									<img src="img/photo/avatar.png" alt="">
+								</div>
+								<div class="testimonials-slider__text-wrap text-content">
+									At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+									praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui
+									officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem
+									rerum facilis est et expedita distinctio.
+									<hr>
+									<div class="testimonials-slider__author">John Doe</div>
+									<div class="testimonials-slider__position">CEO Abc Company</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
 					</div>
 				</div>
-			</section> 
+				<div class="testimonials__column">
+					<div class="testimonials__img ibg _bg-darken">
+						<img src="img/photo/testimonials.jpg" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
 
-		</main>
-		<!-- == // PAGE CONTENT ================== -->
+		<section class="advantages _bg-darken">
+			<div class="advantages__bg ibg">
+				<img src="img/photo/img.jpg" alt="">
+			</div>
+			<div class="advantages__body container">
+				<div class="advantages__title">
+					Creativity. <br> Professionalism. <br> High standards.
+				</div>
+			</div>
+		</section>
+	</main>
+	<!-- == // PAGE CONTENT ================== -->
 
-		<!-- == FOOTER ================== -->
-		@@include('common/footer/_footer.html',{})
-		<!-- == // FOOTER ================== -->
-		
-		@@include('_js.html',{})
-	</body>
+	<!-- == FOOTER ================== -->
+	@@include('common/footer/_footer.html',{})
+	<!-- == // FOOTER ================== -->
+
+	@@include('_js.html',{})
+</body>
+
 </html>

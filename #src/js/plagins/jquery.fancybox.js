@@ -3318,7 +3318,6 @@
     }
 
     e.preventDefault();
-   console.log(e);
    
    let pause = await new Promise((resolve) => {
      anime.timeline({
